@@ -20,6 +20,6 @@ class Game extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('game/clean_art');
+		$this->load->view('games/clean_art');
 	}
 }
