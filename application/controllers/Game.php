@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Game extends CI_Controller {
 
@@ -20,6 +19,31 @@ class Game extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('games/clean_art');
+
+	}
+
+	public function clean_art()
+	{
+		$data = array('title' => 'Clean Art');
+		$this->load->view('games/clean_art', $data);
+	}
+
+
+	public function roulette_art()
+	{
+		$data = array('title' => 'Roulette Art');
+		$this->load->view('games/roulette_art', $data);
+	}
+
+	public function memo_art()
+	{
+		$data = array('title' => 'Memo Art');
+		$this->load->view('games/memo_art', $data);
+	}
+
+	public function puzzle_art()
+	{
+		$data = array('title' => 'Puzzle Art');
+		$this->load->view('games/puzzle_art', $data);
 	}
 }

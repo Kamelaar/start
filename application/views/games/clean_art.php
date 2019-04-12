@@ -2,6 +2,8 @@
 /**
  * Created by IntelliJ IDEA.
  * User: Informatique
- * Date: 08/04/2019
- * Time: 01:19
+ * Date: 12/04/2019
+ * Time: 09:51
  */
+?>
+<h1> <?= $title ?> </h1>
