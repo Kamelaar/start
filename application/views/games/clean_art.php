@@ -43,13 +43,13 @@
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.5'){
             	swal.fire({
-					title: "Ta gagné fdp",
-					text: "Maintenant click sur jeu suivant boloss",
+					title: "Bravo tu sauvé le tableau!",
+					text: "Maintenant tu peux continuer",
 					type: "success",
-					confirmButtonText: 'Jeu suivant'
+					confirmButtonText: 'Suivant'
 					}).then(function() {
 					// Redirect the user
-					document.location.href="<?php echo base_url() ?>application/views/games/puzzle_art.php";
+					document.location.href="puzzle_art";
 					});
             };
           }
