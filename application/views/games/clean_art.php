@@ -19,7 +19,6 @@
      <title>[START] | CleanArt</title>
 
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/cleanart.css">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
@@ -31,17 +30,28 @@
 
     <script src='http://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
     <script src='<?php echo base_url() ?>assets/js/cleanArt/jquery.eraser.js' type='text/javascript'></script>
-    
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type = "text/javascript">
 
       $(function(){
         
+        $("#progress").hide();
 
         $('#redux').eraser({
           progressFunction: function(p) {
+          	var progress = p;
             $('#progress').html(Math.round(p*100)+'%');
-            
+            if (progress == '0.5'){
+            	swal.fire({
+					title: "Ta gagné fdp",
+					text: "Maintenant click sur jeu suivant boloss",
+					type: "success",
+					confirmButtonText: 'Jeu suivant'
+					}).then(function() {
+					// Redirect the user
+					document.location.href="<?php echo base_url() ?>application/views/games/puzzle_art.php";
+					});
+            };
           }
         });
 
@@ -71,7 +81,6 @@
 
           event.preventDefault();
         });
-
       });
 
     </script>
