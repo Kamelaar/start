@@ -50,7 +50,7 @@
 			<!-- open/close -->
 			<div class="hedder-logo">
 				<h1><a href="index.html">
-						<img src="img/logo-creteil.png" class="img-fluid logo-creteil" alt="Responsive image"></a>
+						<img src="<?= base_url('assets/img/logo-creteil.png')?>" class="img-fluid logo-creteil" alt="Responsive image"></a>
 				</h1>
 			</div>
 			<!-- /open/close -->
@@ -62,8 +62,8 @@
 	<div class="slides text-center">
 		<div class="slide slide--current ">
 			<div class="slider-up">
-				<img src="img/start-logo.png" id="logo" class="animated heartBeat">
-				<a href="games/cleanArt/  " id="start" class ="btn btn-danger btn-lg">Commencer</a>
+				<img src="<?= base_url('assets/img/start-logo.png')?>" id="logo" class="animated heartBeat">
+				<a href='games/clean_art' id="start" class ="btn btn-danger btn-lg">Commencer</a>
 			</div>
 			<div class="slide__img">
 			</div>
@@ -85,20 +85,20 @@
 
 
 <!-- js working-->
-<script src="assets/js/jquery-2.2.3.min.js"></script>
+<script src="<?=base_url('assets/js/jquery-2.2.3.min.js')?>"></script>
 <!--//js working-->
 <!-- For-Banner -->
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/anime.min.js"></script>
-<script src="assets/js/uncover.js"></script>
-<script src="assets/js/demo1.js"></script>
+<script src="<?=base_url('assets/js/imagesloaded.pkgd.min.js')?>"></script>
+<script src="<?=base_url('assets/js/anime.min.js')?>"></script>
+<script src="<?=base_url('assets/js/uncover.js')?>"></script>
+<script src="<?=base_url('assets/js/demo1.js')?>"></script>
 <!-- //For-Banner -->
 <!--nav menu-->
-<script src="assets/js/classie.js"></script>
-<script src="assets/js/demonav.js"></script>
+<script src="<?=base_url('assets/js/classie.js')?>"></script>
+<script src="<?=base_url('assets/js/demonav.js')?>"></script>
 <!-- //nav menu-->
 <!-- bootstrap working-->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 <!-- // bootstrap working-->
 
 </body>
