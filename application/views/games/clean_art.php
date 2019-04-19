@@ -6,7 +6,6 @@
  * Time: 09:51
  */
 ?>
-<h1> <?= $title ?> </h1>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,6 +21,11 @@
   </head>
 
   <body>
+    <style>
+    body{
+    background: no-repeat center url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png")
+    }
+    </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url() ?>assets/img/cleanArt/image1.jpg" />
       <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/image2.png" />
