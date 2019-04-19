@@ -1,4 +1,3 @@
-        
 body {
     margin: 0; 
     padding: 0;
@@ -62,7 +61,11 @@ p, pre {
         white-space: normal; 
     }
 }
-
+#puzzle-containment{
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
 .inline-code { 
     padding: 1px 5px; 
     background: #eee; 
