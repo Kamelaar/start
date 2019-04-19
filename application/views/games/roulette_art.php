@@ -22,6 +22,11 @@
 </head>
 
 <body>
+    <style>
+    body{
+    background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png")
+    }
+    </style>
     <div id="wrapper">
         <div id="content">
             <div class="fancy">

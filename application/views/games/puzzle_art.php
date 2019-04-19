@@ -21,6 +21,11 @@
     <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
+    <style>
+    body{
+    background: url("<?php echo base_url() ?>assets/img/background/PUZZLE-ART-START.png")
+    }
+    </style>
     <div id="puzzle-containment" style="border-top: 1px solid #eee;border-bottom:1px solid #eee;background:#fafafa;margin:30px 0;padding:10px;text-align:center">
         <div class="pure-g" style="max-width:1280px;margin:auto">
             <div class="pure-u-1 pure-u-md-1-2"><div style="margin:10px">
