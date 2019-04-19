@@ -6,7 +6,6 @@
  * Time: 09:51
  */
 ?>
-<h1> <?= $title ?> </h1>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +23,7 @@
   <body>
     <style>
     body{
-    background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png")
+    background: no-repeat center url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png")
     }
     </style>
     <span class="container center-block">
