@@ -17,7 +17,12 @@
 </head>
 
 <body>
-
+    <style>
+    body{
+    background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png");
+    background-size: cover;
+    }
+    </style>
     <div id="wrapper">
         <div id="content">
             <div class="fancy">
@@ -99,7 +104,7 @@
               cancelButtonText : 'Non ! Rejouer.'
             }).then((result) => {
               if (result.value) {
-               document.location.href="";
+               document.location.href="emotion_art";
               }
             })
         });

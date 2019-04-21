@@ -45,7 +45,7 @@
 
 				if (text) {
 				  Swal.fire(text)
-				  document.location.href="clean_art";
+				  document.location.href="color_art";
 				}
 				})()
     	});

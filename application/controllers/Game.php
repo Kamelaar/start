@@ -35,12 +35,6 @@ class Game extends CI_Controller {
 		$this->load->view('games/roulette_art', $data);
 	}
 
-	public function memo_art()
-	{
-		$data = array('title' => 'Memo Art');
-		$this->load->view('games/memo_art', $data);
-	}
-
 	public function puzzle_art()
 	{
 		$data = array('title' => 'Puzzle Art');
