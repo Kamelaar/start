@@ -6,12 +6,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html,
 body {
-    height: 400px;
-padding: 0;
-margin: 0;
 
-letter-spacing: 1px;
-font-family:  'Arimo', sans-serif;
+	display: flex;
+	background-image:url(../img/start_home_page.png);
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width: 100%;
+	height: 100%;
+
 }
 body a {
 outline: none;
@@ -30,11 +36,17 @@ a:hover {
 text-decoration: none;
 }
 
-.home-background{
-    background-image: linear-gradient(-90deg, #1E90FF, #ADFF2F);
-}
-.puzzle-art-background {
-    background-color: #1E90FF;
+.start_logo{
+	background-image:url(../img/start_logo.png);
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width: 80%;
+	height: 80%;
+	margin: auto;
 }
 
 input[type="button"],
@@ -1256,4 +1268,6 @@ font-size: 13px;
 .cut-img{
     margin: 0 auto;
 }
+
+
 

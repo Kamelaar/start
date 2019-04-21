@@ -42,36 +42,10 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-<div class="header-outs home-background " id="home">
-	<div class="header-w3layouts">
-		<div class="container">
-			<div class="right-side">
-			</div>
-			<!-- open/close -->
-			<div class="hedder-logo">
-				<h1><a href="index.html">
-						<img src="<?= base_url('assets/img/logo-creteil.png')?>" class="img-fluid logo-creteil" alt="Responsive image"></a>
-				</h1>
-			</div>
-			<!-- /open/close -->
-			<!-- /navigation section -->
-		</div>
-		<div class="clearfix"> </div>
+	<div class = "start_logo">
+
 	</div>
-	<!--banner-->
-	<div class="slides text-center">
-		<div class="slide slide--current ">
-			<div class="slider-up">
-				<img src="<?= base_url('assets/img/start-logo.png')?>" id="logo" class="animated heartBeat">
-				<a href='games/clean_art' id="start" class ="btn btn-danger btn-lg">Commencer</a>
-			</div>
-			<div class="slide__img">
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-	<div class="clearfix"></div>
-</div>
+</body>
 <script>
 	$(document).ready(function () {
 		$('#start').click(function(){
