@@ -46,4 +46,9 @@ class Game extends CI_Controller {
 		$data = array('title' => 'Puzzle Art');
 		$this->load->view('games/puzzle_art', $data);
 	}
+	public function emotion_art()
+	{
+		$data = array('title' => 'Emotion Art');
+		$this->load->view('games/emotion_art', $data);
+	}
 }
