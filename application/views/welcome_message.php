@@ -42,20 +42,19 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-	<div class = "start_logo">
 
-	</div>
+<!--The home page soundtrack-->
+<audio autoplay loop>
+	<source src="<?= base_url('assets/audio/home_page.mp3')?>" type="audio/ogg">
+	Votre navigateur ne supporte pas le format MP3.
+</audio>
+
+<!--The game logo-->
+<div class = "start_logo">
+</div>
+
 </body>
-<script>
-	$(document).ready(function () {
-		$('#start').click(function(){
-		});
-	});
-</script>
-<!--//banner-->
-<!--Footer -->
 
-<!-- //Footer -->
 
 
 <!-- js working-->
@@ -75,5 +74,5 @@
 <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 <!-- // bootstrap working-->
 
-</body>
+
 </html>

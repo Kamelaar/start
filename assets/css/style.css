@@ -8,6 +8,7 @@ html,
 body {
 
 	display: flex;
+
 	background-image:url(../img/start_home_page.png);
 
 	/* Center and scale the image nicely */
