@@ -24,7 +24,7 @@
   <body>
     <style>
     body{
-    background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png")
+    background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png");
     }
     </style>
     <span class="container center-block">

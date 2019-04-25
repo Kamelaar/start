@@ -50,7 +50,7 @@
 </audio>
 
 <!--The game logo-->
-<div class = "start_logo">
+<div class = "start_logo animated infinite pulse">
 </div>
 
 </body>

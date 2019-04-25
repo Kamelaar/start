@@ -8,7 +8,7 @@ $(document).ready(function () {
   // Color Thief demo code
   // ---------------------
   var imageArray = {images: [
-      {'file': '../../assets/img/photo1.jpg'}
+      {'file': '../assets/img/photo1.jpg'}
   ]};
 
   // Render example images
