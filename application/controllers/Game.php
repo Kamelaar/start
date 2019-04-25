@@ -25,7 +25,7 @@ class Game extends CI_Controller {
 	public function clean_art()
 	{
 		$data = array('title' => 'Clean Art');
-		$this->load->view('games/clean_art', $data);
+		$this->load->view('games/clean_art', $data);	
 	}
 
 
@@ -35,10 +35,10 @@ class Game extends CI_Controller {
 		$this->load->view('games/roulette_art', $data);
 	}
 
-	public function memo_art()
+	public function color_art()
 	{
-		$data = array('title' => 'Memo Art');
-		$this->load->view('games/memo_art', $data);
+		$data = array('title' => 'color_art');
+		$this->load->view('games/color_art', $data);
 	}
 
 	public function puzzle_art()
