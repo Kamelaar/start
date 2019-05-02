@@ -1,89 +1,78 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zxx">
 <head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Start</title>
+	<!--Pour les mouvements du logo: librairie animate.css-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+	<!--meta tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Dragon Hunt Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+         Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
 
-	<style type="text/css">
-
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!--//meta tags ends here-->
+	<!--booststrap-->
+	<link href="<?= base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" media="all">
+	<!--//booststrap end-->
+	<!-- font-awesome icons -->
+	<link href="<?= base_url('assets/css/fontawesome-all.min.css')?>" rel="stylesheet" type="text/css" media="all">
+	<!-- //font-awesome icons -->
+	<!-- Nav-CSS -->
+	<link href="<?= base_url('assets/css/nav.css')?>" rel="stylesheet" type="text/css" media="all" />
+	<script src="<?= base_url('assets/js/modernizr.custom.js')?>"></script>
+	<!-- //Nav-CSS -->
+	<!-- banner -->
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/uncover.css')?>" />
+	<!--//banner -->
+	<!--stylesheets-->
+	<link href="<?= base_url('assets/css/style.css')?>" rel='stylesheet' type='text/css' media="all">
+	<!--//stylesheets-->
+	<link href="//fonts.googleapis.com/css?family=Cinzel+Decorative:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+<!--The home page soundtrack-->
+<audio autoplay loop>
+	<source src="<?= base_url('assets/audio/home_page.mp3')?>" type="audio/ogg">
+	Votre navigateur ne supporte pas le format MP3.
+</audio>
 
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+<!--The game logo-->
+<div class = "start_logo animated infinite pulse">
 </div>
 
 </body>
+
+
+
+<!-- js working-->
+<script src="<?=base_url('assets/js/jquery-2.2.3.min.js')?>"></script>
+<!--//js working-->
+<!-- For-Banner -->
+<script src="<?=base_url('assets/js/imagesloaded.pkgd.min.js')?>"></script>
+<script src="<?=base_url('assets/js/anime.min.js')?>"></script>
+<script src="<?=base_url('assets/js/uncover.js')?>"></script>
+<script src="<?=base_url('assets/js/demo1.js')?>"></script>
+<!-- //For-Banner -->
+<!--nav menu-->
+<script src="<?=base_url('assets/js/classie.js')?>"></script>
+<script src="<?=base_url('assets/js/demonav.js')?>"></script>
+<!-- //nav menu-->
+<!-- bootstrap working-->
+<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
+<!-- // bootstrap working-->
+
+
 </html>
