@@ -48,16 +48,16 @@ h1{
     border-left: none;
 }
 .fancy .slot li:nth-child(3) {
-    background: center url("../img/imgLeft/img1.jpg");
+    background: center url("../img/imgLeft/AG.png");
     background-size: cover;
 }
 .fancy .slot li:nth-child(2) {
-    background: center url("../img/imgLeft/img2.jpg");
+    background: center url("../img/imgLeft/BG.png");
     background-size: cover;
 }
 .fancy .slot li:nth-child(1),
 .fancy .slot li:nth-child(8) {
-    background: center url("../img/imgLeft/img3.jpg");
+    background: center url("../img/imgLeft/CG.png");
     background-size: cover;
 }
 .fancy .slot li span {
@@ -95,16 +95,16 @@ h1{
     border-left: none;
 }
 .fancy2 .slot2 li:nth-child(3) {
-    background: center url("../img/imgLeft/img1.jpg");
+    background: center url("../img/imgRight/AD.png");
     background-size: cover;
 }
 .fancy2 .slot2 li:nth-child(2) {
-    background: center url("../img/imgLeft/img2.jpg");
+    background: center url("../img/imgRight/BD.png");
     background-size: cover;
 }
 .fancy2 .slot2 li:nth-child(1),
 .fancy2 .slot2 li:nth-child(8) {
-    background: center url("../img/imgLeft/img3.jpg");
+    background: center url("../img/imgRight/CD.png");
     background-size: cover;
 }
 .fancy2 .slot2 li span {
@@ -243,4 +243,47 @@ label {
      text-align: center;
 }
 textarea{
+}
+      #countdown {
+        margin: auto;
+        margin-top: 100px;
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        position: absolute; /* postulat de départ */
+        top: 0%; left: 90%; /* à 50%/50% du parent référent */
+        transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+      }
+
+      #countdown-number {
+        color: black;
+        display: inline-block;
+        line-height: 40px;
+      }
+
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 40px;
+        transform: rotateY(-180deg) rotateZ(-90deg);
+      }
+
+      svg circle {
+        stroke-dasharray: 113px;
+        stroke-dashoffset: 100px;
+        stroke-linecap: round;
+        stroke-width: 3px;
+        stroke: black;
+        fill: none;
+        animation: countdown 1s linear infinite forwards;
+      }
+
+      @keyframes countdown {
+        from {
+          stroke-dashoffset: 0px;
+        }
+        to {
+          stroke-dashoffset: 200px;
 }
