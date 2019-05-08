@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: Informatique
- * Date: 12/04/2019
- * Time: 09:51
- */
+  $chiffre = rand (1,12);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,18 +18,38 @@
   <body>
     <style>
     body{
-    background: no-repeat center url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png")
+    background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png");
+    background-size: cover;
+    }
+    .container{
+      position : absolute;
+      top : 50%; left : 50%;
+      transform: translate(-50%, -50%);
     }
     </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url() ?>assets/img/cleanArt/image1.jpg" />
-      <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/image2.png" />
+      <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/dust.png" />
       <div id="progress">0%</div>
     </span>
 
+    <div id="countdown">
+    <div style="font-size: 25px;" id="countdown-number"></div>
+      <svg>
+        <circle r="18" cx="48" cy="20"></circle>
+      </svg>
+    </div>
+
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
+
+
     <script src='http://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
     <script src='<?php echo base_url() ?>assets/js/cleanArt/jquery.eraser.js' type='text/javascript'></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type = "text/javascript">
 
       $(function(){
@@ -85,9 +100,23 @@
 
           event.preventDefault();
         });
+
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 60;
+
+        countdownNumberEl.textContent = countdown;
+
+        setInterval(function() {
+          countdown = --countdown <= 0 ? 10: countdown;
+
+          countdownNumberEl.textContent = countdown;
+        }, 1000);
       });
 
     </script>
+
+    <script>
+</script>
 
   </body>
 

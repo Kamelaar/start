@@ -27,7 +27,6 @@ class Game extends CI_Controller {
 		$data = array('title' => 'Clean Art');
 		$this->load->view('games/clean_art', $data);	
 	}
-
 	public function roulette_art()
 	{
 		$data = array('title' => 'Roulette Art');
