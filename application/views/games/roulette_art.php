@@ -45,6 +45,12 @@
             </div>
         </div>
     </div>
+    <div id="countdown">
+    <div style="font-size: 25px;" id="countdown-number"></div>
+      <svg>
+        <circle r="18" cx="48" cy="20"></circle>
+      </svg>
+    </div>
     <input type="button" class="bouton17" id="btnConfirm" value="Confirmer">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
@@ -108,6 +114,16 @@
               }
             })
         });
+
+
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 60;
+        countdownNumberEl.textContent = countdown;
+        setInterval(function() {
+          countdown = --countdown <= 0 ? 10: countdown;
+          countdownNumberEl.textContent = countdown;
+        }, 1000);
+      
     </script>
 </body>
 </html>
