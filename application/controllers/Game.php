@@ -25,7 +25,9 @@ class Game extends CI_Controller {
 	public function clean_art()
 	{
 		$data = array('title' => 'Clean Art');
-		$this->load->view('games/clean_art', $data);	
+		$this->load->view('games/clean_art', $data);
+		$time = $this->input->post('time');	
+		var_dump($time);
 	}
 	public function roulette_art()
 	{

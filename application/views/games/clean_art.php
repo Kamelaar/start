@@ -13,6 +13,7 @@
      <title>[START] | CleanArt</title>
 
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/cleanart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
   </head>
 
   <body>
@@ -20,11 +21,6 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png");
     background-size: cover;
-    }
-    .container{
-      position : absolute;
-      top : 50%; left : 50%;
-      transform: translate(-50%, -50%);
     }
     </style>
     <span class="container center-block">
@@ -54,25 +50,57 @@
 
       $(function(){
         
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 60;
         $("#progress").hide();
 
         $('#redux').eraser({
           progressFunction: function(p) {
           	var progress = p;
             $('#progress').html(Math.round(p*100)+'%');
-            if (progress == '0.5'){
-            	swal.fire({
-					title: "Bravo tu sauvé le tableau!",
-					text: "Maintenant tu peux continuer",
-					type: "success",
-					confirmButtonText: 'Suivant'
-					}).then(function() {
-					// Redirect the user
-					document.location.href="puzzle_art";
-					});
-            };
+            if (progress == '0.6875'){
+            swal.fire({
+  					title: "Bravo tu sauvé le tableau!",
+  					text: "Maintenant tu peux continuer",
+  					type: "success",
+  					confirmButtonText: 'Suivant',
+            //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("/start/assets/img/logo-creteil.png")
+              center left
+              no-repeat
+            `,
+            //METTRE DANS CETTE URL LE FOND DE LA BOX
+            background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+            customClass: {
+                popup: 'animated tada'
+              }
+  					})
+            .then(function() {
+              var time = countdownNumberEl.textContent;
+                $.ajax({              //request ajax
+                url:"<?php echo site_url('Game/clean_art')?>",
+                type:'POST',
+                data:{time:time},
+                 success: function(repons) {
+                        // METTRE LA FICHER ARTISTE ICI //
+                             alert('OK!');
+                        // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+                           },
+                 error: function() {
+                    alert("Invalide!");
+                  }
+              
+                });
+            });
           }
-        });
+        }
+      });
+        
+          
+
+          
 
         $('#resetBtn').click(function(event) {
           $('#redux').eraser('reset');
@@ -101,18 +129,17 @@
           event.preventDefault();
         });
 
-        var countdownNumberEl = document.getElementById('countdown-number');
-        var countdown = 60;
+
 
         countdownNumberEl.textContent = countdown;
 
         setInterval(function() {
-          countdown = --countdown <= 0 ? 10: countdown;
+          countdown = --countdown <= 0 ? 60: countdown;
 
           countdownNumberEl.textContent = countdown;
-        }, 1000);
-      });
+        }, 1000);      
 
+    });    
     </script>
 
     <script>

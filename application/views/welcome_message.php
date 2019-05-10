@@ -73,6 +73,4 @@
 <!-- bootstrap working-->
 <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 <!-- // bootstrap working-->
-
-
 </html>
