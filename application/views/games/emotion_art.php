@@ -20,13 +20,14 @@
     background-size: cover;
     }
     </style>
-    <img id="imgEmotion" src="<?php echo base_url() ?>assets/img/david.jpg">
+    <img id="imgEmotion" src="<?php echo base_url() ?>assets/img/emotionArt/david.jpg">
     <div id="container">
     	<ul>
-    		<li><img class="animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/svg/in-love.svg"></li>
-    		<li><img class="animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/svg/happy.svg"></li>
-    		<li><img class="animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/svg/confused.svg"></li>
-    		<li><img class="animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/svg/unhappy.svg"></li>
+    		<li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticoneAngry.png"></li>
+    		<li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticoneContent.png"></li>
+    		<li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticoneLove.png"></li>
+    		<li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticonePeur.png"></li>
+            <li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticoneTriste.png"></li>
     	</ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
