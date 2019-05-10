@@ -14,6 +14,9 @@
 
 <!-- Syntax highlighting, ignore this -->
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/rouletteart.css">
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+
 </head>
 
 <body>
@@ -32,7 +35,7 @@
                     <li><span>2</span></li>
                     <li><span>1</span></li>
                 </ul>
-                <input type="button" class="bouton17" id="playFancy" value="Play">
+                <input type="button" class="btn-2j btn-2 btn" id="playFancy" value="JOUER!">
             </div>
             <div class="fancy2">
                 <ul class="slot2">
@@ -41,7 +44,7 @@
                     <li><span>2</span></li>
                     <li><span>1</span></li>
                 </ul>
-                <input type="button" class="bouton17" id="playFancy2" value="Play">
+                <input type="button" class="btn-2j btn-2 btn" id="playFancy2" value="JOUER!">
             </div>
         </div>
     </div>
@@ -51,7 +54,7 @@
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
     </div>
-    <input type="button" class="bouton17" id="btnConfirm" value="Confirmer">
+    <input type="button" class="btn btn-2 btn-2h" id="btnConfirm" value="Confirmer">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -101,19 +104,43 @@
         $('#btnConfirm').click(function(){
             Swal.fire({
               title: 'Tu penses avoir reconstitué le tableau?',
-              text: "You won't be able to revert this!",
               type: 'question',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
               confirmButtonText: 'Oui ! Jeu suivant.',
-              cancelButtonText : 'Non ! Rejouer.'
+              cancelButtonText : 'Non ! Rejouer.',
+                //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
+                backdrop: `
+                  rgba(0,0,123,0.4)
+                  url("/start/assets/img/logo-creteil.png")
+                  center left
+                  no-repeat
+                `,
+                //METTRE DANS CETTE URL LE FOND DE LA BOX
+                background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                customClass: {
+                    popup: 'animated tada'
+                  }
             }).then((result) => {
               if (result.value) {
-               document.location.href="emotion_art";
-              }
-            })
-        });
+               var time = countdownNumberEl.textContent;
+                        $.ajax({              //request ajax
+                        url:"<?php echo site_url('Game/roulette_art')?>",
+                        type:'POST',
+                        data:{time:time},
+                         success: function(repons) {
+                                // METTRE LA FICHER ARTISTE ICI //
+                                // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+                                document.location.href="emotion_art";
+                                   },
+                         error: function() {
+                            alert("Invalide!");
+                          }
+                        });
+                      }
+                    })
+                });
 
 
         var countdownNumberEl = document.getElementById('countdown-number');

@@ -32,6 +32,7 @@ class Game extends CI_Controller {
 	{
 		$data = array('title' => 'Roulette Art');
 		$this->load->view('games/roulette_art', $data);
+		$time3 = $this->input->post('time');
 	}
 
 	public function color_art()
