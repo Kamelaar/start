@@ -9,12 +9,13 @@
 	<head>
 		<title>[START] | COLORART</title>
 		  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/screen.css">
+      <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/colorArt.css">
 	</head>
 	<body>
 	<style>
 	body{
 	background: url("<?php echo base_url() ?>assets/img/background/PALETTTE-COULEUR-START.png");
-    background-size: cover;
+  background-size: cover;
 	}
 	</style>
 
@@ -47,13 +48,13 @@
   </script>
 
     <script id="color-thief-output-template" type="text/x-mustache">
-    <div style="background-color: red" class="function get-color">
+    <div class="function get-color">
       <h3 class="function-title">Quelle est la couleur dominante du tableau?</h3>
       <div class="swatches">
+        <div id="color2" class="swatch" style="background-color: <?php echo $color?>"></div>
+        <div id="color2" class="swatch" style="background-color: <?php echo 'red'?>"></div>
         <div id="color1" class="swatch" style="background-color: rgb({{color.0}}, {{color.1}}, {{color.2}})"></div>
-        <div id="color2" class="swatch" style="background-color: <?php echo $color; ?>;"</div>
-        <div id="color3" class="swatch" style="background-color: <?php echo $color; ?>;"</div>
-        <div id="color4" class="swatch" style="background-color: <?php echo $color; ?>;"></div>
+        <div id="color2" class="swatch" style="background-color: <?php echo 'blue'?>"></div>
       </div>
     </div>
   </script>

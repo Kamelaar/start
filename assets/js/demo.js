@@ -8,7 +8,7 @@ $(document).ready(function () {
   // Color Thief demo code
   // ---------------------
   var imageArray = {images: [
-      {'file': '../assets/img/photo1.jpg'}
+      {'file': '../assets/img/colorArt/Miro Plumes de paon.png'}
   ]};
 
   // Render example images
