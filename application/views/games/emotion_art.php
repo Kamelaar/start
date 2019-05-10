@@ -30,6 +30,14 @@
             <li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticoneTriste.png"></li>
     	</ul>
     </div>
+
+    <div id="countdown">
+    <div style="font-size: 25px;" id="countdown-number"></div>
+      <svg>
+        <circle r="18" cx="48" cy="20"></circle>
+      </svg>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script>
@@ -50,5 +58,16 @@
 				}
 				})()
     	});
+
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 60;
+
+        countdownNumberEl.textContent = countdown;
+
+        setInterval(function() {
+          countdown = --countdown <= 0 ? 10: countdown;
+
+          countdownNumberEl.textContent = countdown;
+        }, 1000);
     </script>
 </body>

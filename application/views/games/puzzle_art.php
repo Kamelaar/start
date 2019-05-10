@@ -39,6 +39,13 @@
         </div>
     </div>
 
+    <div id="countdown">
+    <div style="font-size: 25px;" id="countdown-number"></div>
+      <svg>
+        <circle r="18" cx="48" cy="20"></circle>
+      </svg>
+    </div>
+
     <div id="fb-root"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -94,6 +101,17 @@
                 <iframe style="float:left;margin-right:15px" src="//ghbtns.com/github-btn.html?user=Pixabay&repo=jQuery-snapPuzzle&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>\
             ');
         }
+
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 60;
+
+        countdownNumberEl.textContent = countdown;
+
+        setInterval(function() {
+          countdown = --countdown <= 0 ? 10: countdown;
+
+          countdownNumberEl.textContent = countdown;
+        }, 1000);
     </script>
 </body>
 </html>
