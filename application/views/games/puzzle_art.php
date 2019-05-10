@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/pure-min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/grids-responsive-min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/puzzleart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
     <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
@@ -56,6 +57,9 @@
         // enables touch support for jQuery UI
         !function(a){function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);
 
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 60;
+
         function start_puzzle(x){
             $('#puzzle_solved').hide();
             $('#source_image').snapPuzzle({
@@ -64,13 +68,39 @@
                 containment: '#puzzle-containment',
                 onComplete: function(){
                     swal.fire({
-						title: "Bravo tu reconstitué le tableau!",
-						text: "Maintenant tu peux continuer",
-						type: "success",
-						confirmButtonText: 'Suivant'
-						}).then(function() {
-						// Redirect the user
-						document.location.href="roulette_art";
+                            title: "Bravo tu sauvé le tableau!",
+                            text: "Maintenant tu peux continuer",
+                            type: "success",
+                            confirmButtonText: 'Suivant',
+                    //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
+                    backdrop: `
+                      rgba(0,0,123,0.4)
+                      url("/start/assets/img/logo-creteil.png")
+                      center left
+                      no-repeat
+                    `,
+                    //METTRE DANS CETTE URL LE FOND DE LA BOX
+                    background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                    customClass: {
+                        popup: 'animated tada'
+                      }
+                    })
+                    .then(function() {
+                      var time = countdownNumberEl.textContent;
+                        $.ajax({              //request ajax
+                        url:"<?php echo site_url('Game/puzzle_art')?>",
+                        type:'POST',
+                        data:{time:time},
+                         success: function(repons) {
+                                // METTRE LA FICHER ARTISTE ICI //
+                                // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+                                document.location.href="roulette_art";
+                                   },
+                         error: function() {
+                            alert("Invalide!");
+                          }
+                      
+                        });
 					});
                 }
             });
@@ -101,9 +131,6 @@
                 <iframe style="float:left;margin-right:15px" src="//ghbtns.com/github-btn.html?user=Pixabay&repo=jQuery-snapPuzzle&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>\
             ');
         }
-
-        var countdownNumberEl = document.getElementById('countdown-number');
-        var countdown = 60;
 
         countdownNumberEl.textContent = countdown;
 

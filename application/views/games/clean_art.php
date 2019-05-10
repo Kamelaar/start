@@ -85,8 +85,8 @@
                 data:{time:time},
                  success: function(repons) {
                         // METTRE LA FICHER ARTISTE ICI //
-                             alert('OK!');
                         // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+                        document.location.href="puzzle_art";
                            },
                  error: function() {
                     alert("Invalide!");
@@ -134,7 +134,7 @@
         countdownNumberEl.textContent = countdown;
 
         setInterval(function() {
-          countdown = --countdown <= 0 ? 60: countdown;
+          countdown = --countdown <= 0 ? 10: countdown;
 
           countdownNumberEl.textContent = countdown;
         }, 1000);      
