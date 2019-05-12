@@ -21,7 +21,7 @@ $(document).ready(function () {
   imageHeight: 600,
   confirmButtonText: 'Jai compris'
   }).then(('load', function(event){
-
+  $('#blocklock').show();
   var $this = $('.run-functions-button');
   $this.text('...');
   var $imageSection     = $this.closest('.image-section');

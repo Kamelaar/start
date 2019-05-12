@@ -2,6 +2,8 @@
     
     $rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
     $color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
+    $color2 = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
+    $color3 = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
     
 ?>
 <!DOCTYPE html>
@@ -32,7 +34,14 @@
       </svg>
     </div>
 
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div id="blocklock">
+      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
+      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
+      <img id="winner" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
+      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   	<script src="<?php echo base_url() ?>assets/js/demo.js"></script>
   	<script src="<?php echo base_url() ?>assets/js/mustache.js"></script>
@@ -59,14 +68,18 @@
       <h3 class="function-title">Quelle est la couleur dominante du tableau?</h3>
       <div class="swatches">
         <div id="color2" class="swatch" style="background-color: <?php echo $color?>"></div>
-        <div id="color2" class="swatch" style="background-color: <?php echo 'red'?>"></div>
+        <div id="color2" class="swatch" style="background-color: <?php echo $color2?>"></div>
         <div id="color1" class="swatch" style="background-color: rgb({{color.0}}, {{color.1}}, {{color.2}})"></div>
-        <div id="color2" class="swatch" style="background-color: <?php echo 'blue'?>"></div>
+        <div id="color2" class="swatch" style="background-color: <?php echo $color3?>"></div>
       </div>
     </div>
   </script>
 
   <script>
+    $(document).ready(function(){
+
+        $('#blocklock').hide();
+
         var countdownNumberEl = document.getElementById('countdown-number');
         var countdown = 60;
 
@@ -77,6 +90,54 @@
 
           countdownNumberEl.textContent = countdown;
         }, 1000);
+
+        $('#loser').click(function(){
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href>Why do I have this issue?</a>'
+          })
+        });
+
+        $('#winner').click(function(){
+          var time = countdownNumberEl.textContent;
+          var points = 25;
+          $.ajax({      
+                url:"<?php echo site_url('Game/color_art')?>",
+                type:'POST',
+                data:{time:time,points:points},
+                 success: function(repons) {
+                  swal.fire({
+                  title: "Bravo tu sauvé le tableau!",
+                  text: "Maintenant tu peux continuer",
+                  type: "success",
+                  confirmButtonText: 'Suivant',
+                  //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
+                  backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/start/assets/img/logo-creteil.png")
+                    center left
+                    no-repeat
+                  `,
+                  //METTRE DANS CETTE URL LE FOND DE LA BOX
+                  background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                  customClass: {
+                      popup: 'animated tada'
+                    }
+                  })
+                  .then(function() {
+                      document.location.href="puzzle_art";
+                  });
+                    },
+                 error: function() {
+                    alert("Invalide!");
+                  }
+              
+                });
+        });
+
+    });
   </script>
 	</body>
 </html>

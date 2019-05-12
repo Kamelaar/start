@@ -1,10 +1,12 @@
 .swatches{
 width : 400px;
 display : inline-flex;
-padding : 20px;
+}
+.swatch{
+border-radius: 20px;
 }
 #examples{
-padding-top: 15%;
+padding-top: ;
 }
 #countdown {
 margin: auto;
@@ -49,4 +51,14 @@ from {
 to {
   stroke-dashoffset: 200px;
 }
+}
+.topArrow{
+	height: 50px;
+	width :50px;
+	margin : 15px;
+}
+#blocklock{
+	position : absolute;
+	top: 91%; left: 50%; /* à 50%/50% du parent référent */
+	transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
 }

@@ -22,36 +22,39 @@ class Game extends CI_Controller {
 
 	}
 
-	public function clean_art()
+	public function clean_art($timeCl)
 	{
-		$data = array('title' => 'Clean Art');
-		$this->load->view('games/clean_art', $data);
-		$time1 = $this->input->post('time');	
+		$this->load->view('games/clean_art');
+		$timeCl = $this->input->post('time');	
 	}
 	public function roulette_art()
 	{
-		$data = array('title' => 'Roulette Art');
-		$this->load->view('games/roulette_art', $data);
-		$time3 = $this->input->post('time');
+		$this->load->view('games/roulette_art');
+		$timeRo = $this->input->post('time');
 	}
 
-	public function color_art()
+	public function color_art($timeCo,$pointsCo)
 	{
-		$data = array('title' => 'color_art');
-		$this->load->view('games/color_art', $data);
+		$this->load->view('games/color_art');
+		$timeCo = $this->input->post('time');
+		$pointsCo = $this->input->post('points');
 	}
   
-	public function puzzle_art()
+	public function puzzle_art($timePu)
 	{
-		$data = array('title' => 'Puzzle Art');
-		$this->load->view('games/puzzle_art', $data);
-		$time2 = $this->input->post('time');	
+		$this->load->view('games/puzzle_art');
+		$timePu = $this->input->post('time');	
 	}
 
-	public function emotion_art()
+	public function emotion_art($timeEm)
 	{
-		$data = array('title' => 'Emotion Art');
-		$this->load->view('games/emotion_art', $data);
-		$time4 = $this->input->post('time');
+		$this->load->view('games/emotion_art');
+		$timeEm = $this->input->post('time');
+	}
+
+	public function score_final($timeCl,$timeCo,$pointsCo,$timePu,$timeEm)
+	{
+		$score = $timeCl + $timeRo + $timeCo + $timePu + $timeEm;
+		$this->load->view('games/score_final',$score);
 	}
 }
