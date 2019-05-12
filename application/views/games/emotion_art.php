@@ -31,33 +31,23 @@
     	</ul>
     </div>
 
+    <div id="block" style="min-width: 310px; height: 350px; max-width: 400px; margin: 0 auto"></div>
+
     <div id="countdown">
     <div style="font-size: 25px;" id="countdown-number"></div>
-      <svg>
+      <svg id="cercle">
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script>
-    	$("li").click(function(){
-    		(async function getText () {
-				const {value: text} = await Swal.fire({
-				  title: 'Pourquoi tu as utilisé cet emoji?',
-				  input: 'textarea',
-				  inputPlaceholder: 'Exprime toi..',
-				  showCancelButton: true,
-				  cancelButtonText: 'je choisis un autre emoji',
-				  confirmButtonText: 'Jeu suivant !'
-				})
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
-				if (text) {
-				  Swal.fire(text)
-				  document.location.href="color_art";
-				}
-				})()
-    	});
+    <script>
+        $(document).ready(function(){
+
+        $("#block").hide();
 
         var countdownNumberEl = document.getElementById('countdown-number');
         var countdown = 60;
@@ -69,5 +59,97 @@
 
           countdownNumberEl.textContent = countdown;
         }, 1000);
+
+        // LE GRAPHIQUE
+        Highcharts.chart('block', {
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+          },
+          title: {
+            text: 'Statistiques emoticones',
+            align: 'middle',
+            verticalAlign: 'top',
+            y: 40
+          },
+          tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+            pie: {
+              dataLabels: {
+                enabled: true,
+                distance: -50,
+                style: {
+                  fontWeight: 'bold',
+                  color: 'white'
+                }
+              },
+              startAngle: -90,
+              endAngle: 90,
+              center: ['50%', '75%'],
+              size: '110%'
+            }
+          },
+          series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '50%',
+            data: [
+              ['Furieux', 30.5],
+              ['Content', 21.5],
+              ['Love', 10.4],
+              ['Wow', 26.6],
+              ['Triste', 11],
+            ]
+          }]
+        });
+        $("li").click(function(){
+            $("#imgEmotion").animate({left: '250px'});
+            $("#block").toggle('slow');
+            setTimeout(
+              function() 
+              {
+                        swal.fire({
+                title: "Bravo tu sauvé le tableau!",
+                text: "Maintenant tu peux continuer",
+                type: "success",
+                confirmButtonText: 'Suivant',
+                //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
+                backdrop: `
+                  rgba(0,0,123,0.4)
+                  url("/start/assets/img/logo-creteil.png")
+                  center left
+                  no-repeat
+                `,
+                //METTRE DANS CETTE URL LE FOND DE LA BOX
+                background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                customClass: {
+                    popup: 'animated tada'
+                  }
+                    })
+                .then(function() {
+                var time = countdownNumberEl.textContent;
+                $.ajax({              //request ajax
+                url:"<?php echo site_url('Game/emotion_art')?>",
+                type:'POST',
+                data:{time:time},
+                 success: function(repons) {
+                        // METTRE LA FICHER ARTISTE ICI //
+                        // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+                        //document.location.href="color_art";
+                           },
+                 error: function() {
+                    alert("Invalide!");
+                  }
+                });
+            });
+        
+              }, 3000);
+        });  
+        });
+
+      
     </script>
 </body>

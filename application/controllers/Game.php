@@ -52,5 +52,6 @@ class Game extends CI_Controller {
 	{
 		$data = array('title' => 'Emotion Art');
 		$this->load->view('games/emotion_art', $data);
+		$time4 = $this->input->post('time');
 	}
 }
