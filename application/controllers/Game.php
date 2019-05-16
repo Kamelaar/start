@@ -22,7 +22,7 @@ class Game extends CI_Controller {
 
 	}
 
-	public function clean_art($timeCl)
+	public function clean_art()
 	{
 		$this->load->view('games/clean_art');
 		$timeCl = $this->input->post('time');	
@@ -33,26 +33,26 @@ class Game extends CI_Controller {
 		$timeRo = $this->input->post('time');
 	}
 
-	public function color_art($timeCo,$pointsCo)
+	public function color_art()
 	{
 		$this->load->view('games/color_art');
 		$timeCo = $this->input->post('time');
 		$pointsCo = $this->input->post('points');
 	}
   
-	public function puzzle_art($timePu)
+	public function puzzle_art()
 	{
 		$this->load->view('games/puzzle_art');
 		$timePu = $this->input->post('time');	
 	}
 
-	public function emotion_art($timeEm)
+	public function emotion_art()
 	{
 		$this->load->view('games/emotion_art');
 		$timeEm = $this->input->post('time');
 	}
 
-	public function score_final($timeCl,$timeCo,$pointsCo,$timePu,$timeEm)
+	public function score_final()
 	{
 		$score = $timeCl + $timeRo + $timeCo + $timePu + $timeEm;
 		$this->load->view('games/score_final',$score);

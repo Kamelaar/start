@@ -50,9 +50,12 @@
 </audio>
 
 <!--The game logo-->
-<div class = "start_logo animated infinite pulse">
-</div>
+<a id="goTo" href="<?= base_url('/game/clean_art')?>"></a>
+<div id="startGame" class="start_logo animated infinite pulse"></div>
 
+<form>
+	<input type="text" id="name" name="name" required
+       minlength="4" maxlength="8" size="20" placeholder="Ton nom...">
 </body>
 
 
@@ -60,17 +63,11 @@
 <!-- js working-->
 <script src="<?=base_url('assets/js/jquery-2.2.3.min.js')?>"></script>
 <!--//js working-->
-<!-- For-Banner -->
-<script src="<?=base_url('assets/js/imagesloaded.pkgd.min.js')?>"></script>
 <script src="<?=base_url('assets/js/anime.min.js')?>"></script>
-<script src="<?=base_url('assets/js/uncover.js')?>"></script>
-<script src="<?=base_url('assets/js/demo1.js')?>"></script>
-<!-- //For-Banner -->
-<!--nav menu-->
-<script src="<?=base_url('assets/js/classie.js')?>"></script>
-<script src="<?=base_url('assets/js/demonav.js')?>"></script>
-<!-- //nav menu-->
-<!-- bootstrap working-->
-<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
-<!-- // bootstrap working-->
+
+<script>
+$('#startGame').click(function(){
+	document.location.href="Game/clean_art";
+});
+</script>
 </html>

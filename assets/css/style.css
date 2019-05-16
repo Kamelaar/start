@@ -34,6 +34,11 @@ body a:focus,
 a:hover {
 text-decoration: none;
 }
+#name{
+	position: absolute; /* postulat de départ */
+  	top: 85%; left: 50%; /* à 50%/50% du parent référent */
+  	transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+}
 
 .start_logo{
 	background-image:url(../img/start_logo.png);
