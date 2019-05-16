@@ -62,16 +62,16 @@
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content pseudo-modal">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Saisis ton nom appuies sur commencer</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Saisis ton nom et appuies sur commencer</h5>
 
 				</div>
 				<div class="modal-body">
-					...
+					<input type="text" class="form-control" id="player_name" name="player_name">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Commencer la partie</button>
+					<input type="submit" class="btn btn-primary" value = "Commencer la partie"></input>
 				</div>
 			</div>
 		</div>
