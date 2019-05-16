@@ -75,36 +75,61 @@
 				Bonjour <?= $this->session->userdata('surname')." ". $this->session->userdata('name')?>
 			</p>
         </li>
-		  
-		<li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/picture/roulette_art">
-            <i class="fas fa-gamepad"></i>
-            <span>Roulette Art</span></a>
-        </li>		
 
-		<li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/picture/clean_art">
-            <i class="fas fa-gamepad"></i>
-            <span>Clean Art</span></a>
-        </li>
-		  
-		<li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/picture/quiz_art">
-            <i class="fas fa-gamepad"></i>
-            <span>Quiz Art</span></a>
-        </li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-gamepad"></i>
+					<span>Roulette Art</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/picture/Roulette_Art">Images du jeu</a>
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Roulette_Art">Fiche artiste</a>
+				</div>
+			</li>
 
-		<li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/picture/memo_art">
-            <i class="fas fa-gamepad"></i>
-            <span>Memo Art</span></a>
-        </li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-gamepad"></i>
+					<span>Clean Art</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/picture/Clean_Art">Images du jeu</a>
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Clean_Art">Fiche artiste</a>
+				</div>
+			</li>
 
-		<li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>admin/picture/puzzle_art">
-            <i class="fas fa-gamepad"></i>
-            <span>Puzzle Art</span></a>
-        </li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-gamepad"></i>
+					<span>Quiz Art</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/picture/Quiz_Art">Images du jeu</a>
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Quiz_Art">Fiche artiste</a>
+				</div>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-gamepad"></i>
+					<span>Color Art</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/picture/Color_Art">Images du jeu</a>
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Color_Art">Fiche artiste</a>
+				</div>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-gamepad"></i>
+					<span>Puzzle Art</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/picture/Puzzle_Art">Images du jeu</a>
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Puzzle_Art">Fiche artiste</a>
+				</div>
+			</li>
 		  
 		<?php endif; ?>
 		  

@@ -18,7 +18,7 @@
 
 	</section> <br />
 
-	<h2 class = "text-center"> Ajouter une oeuvre </h2> <br />
+	<h2 class = "text-center"> Ajouter une image </h2> <br />
 
 	<!-- success message to display after uploading image -->
 	<?php if ($this->session->flashdata('success')) { ?>
@@ -40,30 +40,69 @@
 	?>
 
 	<!-- image upload form      -->
-	<?= form_open_multipart('Image/add_image') ?>
+	<?= form_open_multipart('admin/add_picture/'.$game_link) ?>
 
 	<div class="row">
 
-		<div class="col">
-			<label for = "image_name">Nom</label>
+		<div class="col img-game-form">
+			<label for = "image_name">Nom de l'oeuvre</label>
 			<input type="text" class="form-control" id="image_name" name="image_name">
 		</div>
 
-		<div class="col">
+		<div class="col img-game-form">
 			<label>Image</label>
 			<input type="file" class="form-control-file" id="userfile" name="userfile">
 		</div>
 
-		<div class = "col">
-			<input type="submit" class="btn btn-primary" value="Ajouter l'oeuvre">
+		<div class = "col submit-game-form">
+			<input type="submit" class="btn btn-primary" value="Ajouter l'image">
 		</div>
 
 	</div>
 
+	<input type="hidden" class="form-control hidden" id="game_link" name="game_link" value = "<?= $game_link ?>">
+	<input type="hidden" class="form-control hidden" id="game_name" name="game_name" value = "<?= $title ?>">
+
 	<?= form_close() ?> <br />
 
-	<h2 class = "text-center"> Liste des oeuvres du jeu </h2> <br />
+	<hr>
 
-	<a href="<?= site_url('Image/view_images') ?>" class="btn btn-success" style="margin-left: 20px;">Voir les images</a>
+	<h2 class = "text-center"> Toutes les images </h2> <br />
 
-</div>
+<?php
+//Columns must be a factor of 12 (1,2,3,4,6,12)
+$numOfCols = 3;
+$rowCount = 0;
+$bootstrapColWidth = 12 / $numOfCols;
+?>
+
+<div class="row">
+
+	<?php foreach ($game_pictures as $row) : ?>
+
+		<div class="col-md-<?php echo $bootstrapColWidth; ?>">
+
+			<div class = "border border-dark rounded image-table">
+
+				<h4> <?= $row -> work_of_art ?> </h4>
+
+				<img src = "<?= base_url('assets/img/'. $row -> img_file) ?>" width = "200px" height = "300px" class="img-fluid">
+
+			</div>
+
+		</div>
+
+		<?php
+		$rowCount++;
+
+		if($rowCount % $numOfCols == 0) :
+
+			echo '</div> <br /> <div class="row">';
+
+		endif;
+
+	endforeach; ?>
+
+</div> <br />
+
+

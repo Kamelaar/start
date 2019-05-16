@@ -24,17 +24,62 @@ class Admin_model extends CI_Model{
 		} else {
 			return array();
 		}
-
 	}
 
-	public function get_picture_info($game)
+	public function get_game_name($game)
 	{
+		$this->db->select('game_name');
+		$this->db->where('game_link', $game);
+		$query = $this->db->get('game_image');
 
+		return $query->row();
 	}
 
-	public function get_card_info($game)
+	public function get_game_pictures($game)
 	{
+		$this->db->select('*');
+		$this->db->where('game_link', $game);
+		$this->db->order_by('id');
+		$query = $this->db->get('game_image');
 
+		return $query->result();
+	}
+
+	public function insert_image($image)
+	{
+		// assign the data to an array
+		$data = array(
+			'work_of_art'	=> $this->input->post('image_name'),
+			'img_file'		=> $image,
+			'game_link'		=> $this->input->post('game_link'),
+			'game_name'		=> $this->input->post('game_name'),
+		);
+
+		//insert image to the database
+		$this->db->insert('game_image', $data);
+	}
+
+	public function get_card_content($game)
+	{
+		$this->db->select('*');
+		$this->db->where('game_link', $game);
+		$query = $this->db->get('game_card');
+
+		return $query->row();
+	}
+
+	public function update_card($image)
+	{
+		// assign the data to an array
+		$data = array(
+			'card_title'	=> $this->input->post('title'),
+			'card_picture'	=> $image,
+			'card_content'	=> $this->input->post('content'),
+		);
+
+		//insert image to the database
+		$this->db->where('game_link', $this->input->post('game_link'));
+		$this->db->update('game_card', $data);
 	}
 
 //		// Check username exists

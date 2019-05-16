@@ -96,27 +96,113 @@ class Admin extends CI_Controller
 
 	public function picture($game)
 	{
+		$game_pictures = $this->admin_model->get_game_pictures($game);
+
+		$title = $this->admin_model->get_game_name($game) -> game_name;
+		$subtitle = "Images du jeu";
+		$game_link = str_replace(" ","_", $title);
+
 		$data = array
 		(
-			'game_info'	=> get_picture_info($game),
-			'title'		=> 'Images du jeu',
+			'title'				=> $title,
+			'subtitle'			=> $subtitle,
+			'game_link'			=> $game_link,
+			'game_pictures'		=> $game_pictures,
 		);
 
 		$this->load->view('templates/header');
 		$this->load->view('admin/picture', $data);
 		$this->load->view('templates/footer');
 	}
+
+	// add image from form
+	public function add_picture($game_link)
+	{
+		// CI form validation
+		$this->form_validation->set_rules('image_name', 'Image Name', 'required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			redirect('admin/picture/'.$game_link);
+		}
+		else
+		{
+			// body of if clause will be executed when image uploading is failed
+			if(!$this->upload->do_upload())
+			{
+				$errors = array('error' => $this->upload->display_errors());
+				// This image is uploaded by deafult if the selected image in not uploaded
+				$image = 'no_image.png';
+			}
+			// body of else clause will be executed when image uploading is succeeded
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+				$image = $_FILES['userfile']['name']; //name must be userfile
+
+
+			}
+			$this->admin_model->insert_image($image);
+			$this->session->set_flashdata('success','Image ajoutée avec succès!');
+
+			redirect('admin/picture/'.$game_link);
+		}
+	}
+
 	public function card($game)
 	{
+
+		$title = $this->admin_model->get_game_name($game) -> game_name;
+		$subtitle = "Fiche artiste";
+		$game_link = str_replace(" ","_", $title);
+
 		$data = array
 		(
-			'card_info'	=> get_card_info($game),
-			'title'		=> 'Fiche artiste du jeu',
+			'title'				=> $title,
+			'subtitle'			=> $subtitle,
+			'card_title'		=> $this->admin_model->get_card_content($game) -> card_title,
+			'card_picture'		=> $this->admin_model->get_card_content($game) -> card_picture,
+			'card_content'		=> $this->admin_model->get_card_content($game) -> card_content,
+			'game_link'			=> $game_link,
 		);
 
 		$this->load->view('templates/header');
 		$this->load->view('admin/card', $data);
 		$this->load->view('templates/footer');
+	}
+
+// add image from form
+	public function update_card($game_link)
+	{
+		// CI form validation
+		$this->form_validation->set_rules('title', 'Titre', 'required');
+		$this->form_validation->set_rules('content', 'Contenu', 'required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			redirect('admin/card/'.$game_link);
+		}
+		else
+		{
+			// body of if clause will be executed when image uploading is failed
+			if(!$this->upload->do_upload())
+			{
+				$errors = array('error' => $this->upload->display_errors());
+				// This image is uploaded by default if the selected image in not uploaded
+				$image = 'no_image.png';
+			}
+			// body of else clause will be executed when image uploading is succeeded
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+				$image = $_FILES['userfile']['name'];  //name must be userfile
+
+			}
+			$this->admin_model->update_card($image);
+			$this->session->set_flashdata('success','Fiche artiste modifiée avec succès!');
+
+			redirect('admin/card/'.$game_link);
+		}
 	}
 
 	// Check if username exists

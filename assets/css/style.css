@@ -45,6 +45,8 @@ text-decoration: none;
 	background-repeat: no-repeat;
 	background-size: cover;
 
+	position: relative;
+
 	width: 80%;
 	height: 80%;
 	margin: auto;
@@ -1270,5 +1272,13 @@ font-size: 13px;
     margin: 0 auto;
 }
 
+.button-start-position{
+	position: absolute;
+	width: 3%;
+	height: 3%;
+	margin: auto;
+	top: 53%;
+	left: 49%;
+}
 
 
