@@ -103,25 +103,17 @@
 
         $('#btnConfirm').click(function(){
             Swal.fire({
-              title: 'Tu penses avoir reconstitué le tableau?',
+              title: 'Tu penses avoir assemblé le bon tableau?',
               type: 'question',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
               confirmButtonText: 'Oui ! Jeu suivant.',
               cancelButtonText : 'Non ! Rejouer.',
-                //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-                backdrop: `
-                  rgba(0,0,123,0.4)
-                  url("/start/assets/img/logo-creteil.png")
-                  center left
-                  no-repeat
-                `,
-                //METTRE DANS CETTE URL LE FOND DE LA BOX
-                background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+              animation: false,
                 customClass: {
                     popup: 'animated tada'
-                  }
+                }
             }).then((result) => {
               if (result.value) {
                var time = countdownNumberEl.textContent;

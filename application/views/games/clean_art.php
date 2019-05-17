@@ -13,6 +13,7 @@
      <title>[START] | CleanArt</title>
 
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/cleanart.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
   </head>
 
@@ -60,19 +61,11 @@
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
             swal.fire({
-  					title: "Bravo tu sauvé le tableau!",
+  					title: "Bravo tu as néttoyer le tableau!",
   					text: "Maintenant tu peux continuer",
   					type: "success",
   					confirmButtonText: 'Suivant',
-            //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-            backdrop: `
-              rgba(0,0,123,0.4)
-              url("/start/assets/img/logo-creteil.png")
-              center left
-              no-repeat
-            `,
-            //METTRE DANS CETTE URL LE FOND DE LA BOX
-            background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+            animation: false,
             customClass: {
                 popup: 'animated tada'
               }
@@ -98,10 +91,6 @@
         }
       });
         
-          
-
-          
-
         $('#resetBtn').click(function(event) {
           $('#redux').eraser('reset');
             $('#progress').html('0%');

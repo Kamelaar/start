@@ -53,7 +53,7 @@
 <a id="goTo" href="<?= base_url('/game/clean_art')?>"></a>
 <div id="startGame" class="start_logo animated infinite pulse"></div>
 
-<form>
+<form method="POST">
 	<input type="text" id="name" name="name" required
        minlength="4" maxlength="8" size="20" placeholder="Ton nom...">
 </body>

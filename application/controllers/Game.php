@@ -17,15 +17,23 @@ class Game extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct() {
+        parent::__construct();
+        $this->load->library('session');
+    }
 	public function index()
 	{
-
+		$this->load->view('welcome_message',$name);
+		$name = $this->input->post('name');
+		//$this->session->set_userdata('name', $name);
 	}
 
 	public function clean_art()
 	{
 		$this->load->view('games/clean_art');
-		$timeCl = $this->input->post('time');	
+		$timeCleanArt = $this->input->post('time');
+
+		//$this->session->set_userdata('time1', $timeCleanArt);
 	}
 	public function roulette_art()
 	{
@@ -53,8 +61,9 @@ class Game extends CI_Controller {
 	}
 
 	public function score_final()
-	{
-		$score = $timeCl + $timeRo + $timeCo + $timePu + $timeEm;
-		$this->load->view('games/score_final',$score);
+	{	
+		
+		//$data = $this->session->userdata();
+		$this->load->view('games/score_final',$data);
 	}
 }

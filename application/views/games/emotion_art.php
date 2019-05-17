@@ -61,70 +61,61 @@
         }, 1000);
 
         // LE GRAPHIQUE
-        Highcharts.chart('block', {
-          chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-          },
-          title: {
-            text: 'Statistiques emoticones',
-            align: 'middle',
-            verticalAlign: 'top',
-            y: 40
-          },
-          tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-            pie: {
-              dataLabels: {
-                enabled: true,
-                distance: -50,
-                style: {
-                  fontWeight: 'bold',
-                  color: 'white'
-                }
-              },
-              startAngle: -90,
-              endAngle: 90,
-              center: ['50%', '75%'],
-              size: '110%'
-            }
-          },
-          series: [{
-            type: 'pie',
-            name: 'Browser share',
-            innerSize: '50%',
-            data: [
-              ['Furieux', 30.5],
-              ['Content', 21.5],
-              ['Love', 10.4],
-              ['Wow', 26.6],
-              ['Triste', 11],
-            ]
-          }]
-        });
+Highcharts.chart('block', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Emoticone/nombre de personnes'
+    },
+    xAxis: {
+        categories: [
+          'Triste',
+          'Choqué',
+          'love',
+          'content',
+          'furieux'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Nombre de personnes :'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Tokyo',
+        data: [49.9, 71.5, 106.4, 129.2, 144.0]
+
+    }]
+});
         $("li").click(function(){
             $("#imgEmotion").animate({left: '250px'});
             $("#block").toggle('slow');
             setTimeout(
               function() 
               {
-                        swal.fire({
+                swal.fire({
                 title: "Bravo tu sauvé le tableau!",
                 text: "Maintenant tu peux continuer",
                 type: "success",
                 confirmButtonText: 'Suivant',
-                //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-                backdrop: `
-                  rgba(0,0,123,0.4)
-                  url("/start/assets/img/logo-creteil.png")
-                  center left
-                  no-repeat
-                `,
-                //METTRE DANS CETTE URL LE FOND DE LA BOX
-                background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                animation: false,
                 customClass: {
                     popup: 'animated tada'
                   }
@@ -138,7 +129,7 @@
                  success: function(repons) {
                         // METTRE LA FICHER ARTISTE ICI //
                         // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                        //document.location.href="color_art";
+                        document.location.href="color_art";
                            },
                  error: function() {
                     alert("Invalide!");

@@ -68,19 +68,11 @@
                 containment: '#puzzle-containment',
                 onComplete: function(){
                     swal.fire({
-                            title: "Bravo tu sauvé le tableau!",
-                            text: "Maintenant tu peux continuer",
-                            type: "success",
-                            confirmButtonText: 'Suivant',
-                    //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-                    backdrop: `
-                      rgba(0,0,123,0.4)
-                      url("/start/assets/img/logo-creteil.png")
-                      center left
-                      no-repeat
-                    `,
-                    //METTRE DANS CETTE URL LE FOND DE LA BOX
-                    background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                    title: "Bravo tu reconstitué le tableau!",
+                    text: "Maintenant tu peux continuer",
+                    type: "success",
+                    confirmButtonText: 'Suivant',
+                    animation: false,
                     customClass: {
                         popup: 'animated tada'
                       }

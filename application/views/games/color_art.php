@@ -12,6 +12,8 @@
 		<title>[START] | COLORART</title>
 		  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/screen.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/colorArt.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+
 	</head>
 	<body>
 	<style>
@@ -109,25 +111,17 @@
                 data:{time:time,points:points},
                  success: function(repons) {
                   swal.fire({
-                  title: "Bravo tu sauvé le tableau!",
+                  title: "Bravo tu retrouvé la bonne couleur!",
                   text: "Maintenant tu peux continuer",
                   type: "success",
                   confirmButtonText: 'Suivant',
-                  //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-                  backdrop: `
-                    rgba(0,0,123,0.4)
-                    url("/start/assets/img/logo-creteil.png")
-                    center left
-                    no-repeat
-                  `,
-                  //METTRE DANS CETTE URL LE FOND DE LA BOX
-                  background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                  animation: false,
                   customClass: {
                       popup: 'animated tada'
                     }
                   })
                   .then(function() {
-                      document.location.href="puzzle_art";
+                      document.location.href="score_final";
                   });
                     },
                  error: function() {
