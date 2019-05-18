@@ -25,6 +25,8 @@
 	<!-- font-awesome icons -->
 	<link href="<?= base_url('assets/css/fontawesome-all.min.css')?>" rel="stylesheet" type="text/css" media="all">
 	<!-- //font-awesome icons -->
+	<!-- Custom fonts for this template-->
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" >
 	<!-- Nav-CSS -->
 	<link href="<?= base_url('assets/css/nav.css')?>" rel="stylesheet" type="text/css" media="all" />
 	<script src="<?= base_url('assets/js/modernizr.custom.js')?>"></script>
@@ -53,9 +55,9 @@
 <div class = "start_logo">
 	<!-- Button trigger modal -->
 
-
-	<button type="button" class="btn btn-primary button-start-position" data-toggle="modal" data-target="#exampleModal">
-	</button>
+	<a class="nav-link button-start-position"  data-toggle="modal" data-target="#exampleModal">
+		<i class="far fa-hand-pointer fa-2x"></i>
+	</a>
 
 
 
