@@ -55,7 +55,7 @@
 <div class = "start_logo">
 	<!-- Button trigger modal -->
 
-	<a class="nav-link button-start-position"  data-toggle="modal" data-target="#exampleModal">
+	<a class="nav-link button-start-position flashit"  data-toggle="modal" data-target="#exampleModal">
 		<i class="far fa-hand-pointer fa-2x"></i>
 	</a>
 
@@ -67,14 +67,19 @@
 			<div class="modal-content pseudo-modal">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Saisis ton nom et appuies sur commencer</h5>
-
 				</div>
+
+				<?= form_open('game/game_manager/clean_art') ?>
+
 				<div class="modal-body">
 					<input type="text" class="form-control" id="player_name" name="player_name">
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value = "Commencer la partie"></input>
+					<input type="submit" class="btn btn-primary" value = "Commencer la partie">
 				</div>
+
+				<?= form_close() ?>
+
 			</div>
 		</div>
 	</div>

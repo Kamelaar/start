@@ -1287,4 +1287,10 @@ font-size: 13px;
 	text-align: center;
 }
 
+.flashit{
+	color:#f2f;
+	-webkit-animation: flash linear 2s infinite;
+	animation: flash linear 2s infinite;
+}
+
 
