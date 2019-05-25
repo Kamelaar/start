@@ -22,6 +22,84 @@ class Game extends CI_Controller {
 
 	}
 
+	public function game_manager($target)
+	{
+		switch ($target)
+		{
+			case 'clean_art' :
+
+				$player_name = $this->security->xss_clean($this->input->post('player_name'));
+
+				// Create session
+				$user_data = array
+				(
+					'authorized'	=> 1,
+					'player_name'	=> $player_name,
+					'score'			=> 0,
+				);
+				$this->session->set_userdata($user_data);
+
+				// Prepare variables
+				$data = array
+				(
+					'title' 		=> 'Règles du jeu',
+					'player_name' 	=> $player_name,
+				);
+
+				// Load view and send variables
+				$this->load->view('pages/instructions', $data);
+
+			break;
+
+			case 'clean_art_card' :
+
+			break;
+
+			case 'puzzle_art' :
+
+			break;
+
+			case 'puzzle_art_card' :
+
+			break;
+
+			case 'roulette_art' :
+
+			break;
+
+			case 'roulette_art_card' :
+
+			break;
+
+			case 'emotion_art' :
+
+			break;
+
+			case 'emotion_art_card' :
+
+			break;
+
+			case 'quizz_art' :
+
+			break;
+
+			case 'quizz_art_card' :
+
+			break;
+
+			case 'end_game' :
+
+			break;
+
+		}
+	}
+	
+	public function game_instructions()
+	{
+		$data = array('title' => 'Règles du jeu');
+		$this->load->view('games/instructions', $data);
+	}
+
 	public function clean_art()
 	{
 		$this->load->view('games/clean_art');
@@ -56,5 +134,11 @@ class Game extends CI_Controller {
 	{
 		$score = $timeCl + $timeRo + $timeCo + $timePu + $timeEm;
 		$this->load->view('games/score_final',$score);
+	}
+	
+	public function game_card()
+	{
+		$data = array('title' => 'Apprendre l\'art');
+		$this->load->view('games/card', $data);
 	}
 }

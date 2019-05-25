@@ -25,6 +25,8 @@
 	<!-- font-awesome icons -->
 	<link href="<?= base_url('assets/css/fontawesome-all.min.css')?>" rel="stylesheet" type="text/css" media="all">
 	<!-- //font-awesome icons -->
+	<!-- Custom fonts for this template-->
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" >
 	<!-- Nav-CSS -->
 	<link href="<?= base_url('assets/css/nav.css')?>" rel="stylesheet" type="text/css" media="all" />
 	<script src="<?= base_url('assets/js/modernizr.custom.js')?>"></script>
@@ -50,12 +52,39 @@
 </audio>
 
 <!--The game logo-->
-<a id="goTo" href="<?= base_url('/game/clean_art')?>"></a>
-<div id="startGame" class="start_logo animated infinite pulse"></div>
+<div class = "start_logo">
+	<!-- Button trigger modal -->
 
-<form>
-	<input type="text" id="name" name="name" required
-       minlength="4" maxlength="8" size="20" placeholder="Ton nom...">
+	<a class="nav-link button-start-position flashit"  data-toggle="modal" data-target="#exampleModal">
+		<i class="far fa-hand-pointer fa-2x"></i>
+	</a>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content pseudo-modal">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Saisis ton nom et appuies sur commencer</h5>
+				</div>
+
+				<?= form_open('game/game_manager/clean_art') ?>
+
+				<div class="modal-body">
+					<input type="text" class="form-control" id="player_name" name="player_name">
+				</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value = "Commencer la partie">
+				</div>
+
+				<?= form_close() ?>
+
+			</div>
+		</div>
+	</div>
+</div>
+
 </body>
 
 
@@ -63,11 +92,19 @@
 <!-- js working-->
 <script src="<?=base_url('assets/js/jquery-2.2.3.min.js')?>"></script>
 <!--//js working-->
+<!-- For-Banner -->
+<script src="<?=base_url('assets/js/imagesloaded.pkgd.min.js')?>"></script>
 <script src="<?=base_url('assets/js/anime.min.js')?>"></script>
+<script src="<?=base_url('assets/js/uncover.js')?>"></script>
+<script src="<?=base_url('assets/js/demo1.js')?>"></script>
+<!-- //For-Banner -->
+<!--nav menu-->
+<script src="<?=base_url('assets/js/classie.js')?>"></script>
+<script src="<?=base_url('assets/js/demonav.js')?>"></script>
+<!-- //nav menu-->
+<!-- bootstrap working-->
+<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
+<!-- // bootstrap working-->
 
-<script>
-$('#startGame').click(function(){
-	document.location.href="Game/clean_art";
-});
-</script>
+
 </html>

@@ -6,9 +6,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html,
 body {
+
 	display: flex;
 
-	background-image:url(../img/start_home_page.png);
+	background-image:url(../img/PAGE-ACCUEIL-START.png);
 
 	/* Center and scale the image nicely */
 	background-position: center;
@@ -17,6 +18,7 @@ body {
 
 	width: 100%;
 	height: 100%;
+
 }
 body a {
 outline: none;
@@ -41,15 +43,17 @@ text-decoration: none;
 }
 
 .start_logo{
-	background-image:url(../img/start_logo.png);
+	background-image:url(../img/LOGO-START.PNG);
 
 	/* Center and scale the image nicely */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 
-	width: 80%;
-	height: 80%;
+	position: relative;
+
+	width: 70%;
+	height: 70%;
 	margin: auto;
 }
 
@@ -83,6 +87,7 @@ margin: 0;
 padding: 0;
 font-family:  'Arimo', sans-serif;
 letter-spacing: 1px;
+color: white;
 }
 p {
 margin: 0;
@@ -1272,3 +1277,25 @@ font-size: 13px;
 .cut-img{
     margin: 0 auto;
 }
+
+.button-start-position{
+	position: absolute;
+	width: 3%;
+	height: 3%;
+	margin: auto;
+	top: 50%;
+	left: 46.5%;
+}
+
+.pseudo-modal{
+	background-color: black;
+	text-align: center;
+}
+
+.flashit{
+	color:#f2f;
+	-webkit-animation: flash linear 2s infinite;
+	animation: flash linear 2s infinite;
+}
+
+
