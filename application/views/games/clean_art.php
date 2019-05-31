@@ -23,6 +23,9 @@
     background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png");
     background-size: cover;
     }
+    .swal2-popup {
+      height: 600px !important;
+    }
     </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url() ?>assets/img/cleanArt/image1.jpg" />
@@ -61,9 +64,7 @@
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
             swal.fire({
-  					title: "Bravo tu as néttoyer le tableau!",
-  					text: "Maintenant tu peux continuer",
-  					type: "success",
+            background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
   					confirmButtonText: 'Suivant',
             animation: false,
             customClass: {
@@ -132,7 +133,13 @@
     </script>
 
     <script>
-</script>
+      $(document).ready(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/cleanArt/popup-regle.png)',
+            showConfirmButton : false
+            })
+      })
+    </script>
 
   </body>
 

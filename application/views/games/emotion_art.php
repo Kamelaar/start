@@ -19,6 +19,9 @@
     background: url("<?php echo base_url() ?>assets/img/background/JEU-EMOTIONS-START.png");
     background-size: cover;
     }
+    .swal2-popup {
+      height: 600px !important;
+    }
     </style>
     <img id="imgEmotion" src="<?php echo base_url() ?>assets/img/emotionArt/david.jpg">
     <div id="container">
@@ -140,7 +143,13 @@ Highcharts.chart('block', {
               }, 3000);
         });  
         });
-
-      
+    </script>
+    <script>
+      $(document).ready(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/emotionArt/popup-regle.png)',
+            showConfirmButton : false
+            })
+      })
     </script>
 </body>

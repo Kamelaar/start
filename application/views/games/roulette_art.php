@@ -25,6 +25,9 @@
     background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png");
     background-size: cover;
     }
+    .swal2-popup {
+      height: 600px !important;
+    }
     </style>
     <div id="wrapper">
         <div id="content">
@@ -143,6 +146,14 @@
           countdownNumberEl.textContent = countdown;
         }, 1000);
       
+    </script>
+    <script>
+      $(document).ready(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-regle.png)',
+            showConfirmButton : false
+            })
+      })
     </script>
 </body>
 </html>

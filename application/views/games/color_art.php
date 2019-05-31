@@ -21,6 +21,9 @@
 	background: url("<?php echo base_url() ?>assets/img/background/PALETTTE-COULEUR-START.png");
   background-size: cover;
 	}
+  .swal2-popup {
+      height: 600px !important;
+  }
 	</style>
 
 	<section id="examples" class="examples-section">
@@ -133,5 +136,6 @@
 
     });
   </script>
+
 	</body>
 </html>
