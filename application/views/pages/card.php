@@ -7,6 +7,6 @@
  */
 ?>
 
-<?= $title ?>
+<?= $title ?> <br />
 
-Bonjour <?= $player_name ?>
+score: <?= $score ?>

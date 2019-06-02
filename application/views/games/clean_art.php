@@ -24,7 +24,7 @@
     }
     </style>
     <span class="container center-block">
-      <img id="robot" src="<?php echo base_url() ?>assets/img/cleanArt/image1.jpg" />
+      <img id="robot" src="<?php echo base_url('assets/img/cleanArt/' . $rand_img) ?>" />
       <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/dust.png" />
       <div id="progress">0%</div>
     </span>
@@ -52,6 +52,7 @@
         
         var countdownNumberEl = document.getElementById('countdown-number');
         var countdown = 60;
+
         $("#progress").hide();
 
         $('#redux').eraser({
@@ -59,41 +60,46 @@
           	var progress = p;
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
+
+				let score = countdownNumberEl.textContent;
+
             swal.fire({
   					title: "Bravo tu sauvé le tableau!",
-  					text: "Maintenant tu peux continuer",
+  					text: "Tu as gagné " + score + " points",
   					type: "success",
-  					confirmButtonText: 'Suivant',
-            //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-            backdrop: `
-              rgba(0,0,123,0.4)
-              url("/start/assets/img/logo-creteil.png")
-              center left
-              no-repeat
-            `,
-            //METTRE DANS CETTE URL LE FOND DE LA BOX
-            background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+  					confirmButtonText: 'Continuer',
+            // METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
+            // backdrop: `
+            //   rgba(0,0,123,0.4)
+            //   url("/start/assets/img/logo-creteil.png")
+            //   center left
+            //   no-repeat
+            // `,
+            // METTRE DANS CETTE URL LE FOND DE LA BOX
+            // background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
             customClass: {
                 popup: 'animated tada'
               }
   					})
             .then(function() {
-              var time = countdownNumberEl.textContent;
+
                 $.ajax({              //request ajax
-                url:"<?php echo site_url('Game/clean_art')?>",
-                type:'POST',
-                data:{time:time},
-                 success: function(repons) {
-                        // METTRE LA FICHER ARTISTE ICI //
-                        // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                        document.location.href="puzzle_art";
-                           },
+					type:"post",
+                url:"score",
+                data:{score : score},
+				cache: false,
+                 success: function(data) {
+					},
                  error: function() {
                     alert("Invalide!");
                   }
-              
-                });
-            });
+
+                })
+				;
+            })
+            // .then(function() {
+			// 	document.location.href = "clean_art_card";
+            // });
           }
         }
       });

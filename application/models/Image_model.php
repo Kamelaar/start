@@ -30,4 +30,17 @@ class Image_model extends CI_Model {
 		$query = $this->db->get('image_data');
 		return $query->result();
 	}
+
+	public function rand_image($game)
+	{
+		$this->db->select('img_file');
+		$this->db->where('game_link', $game);
+		$this->db->order_by('rand()');
+//		$this->db->limit('1');
+		$query = $this->db->get('game_image');
+
+		return $query->row();
+	}
 }
+
+

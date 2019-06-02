@@ -44,14 +44,27 @@ class Game extends CI_Controller {
 				(
 					'title' 		=> 'Règles du jeu',
 					'player_name' 	=> $player_name,
+					'rand_img'		=> $this->image_model->rand_image('Clean_Art')->img_file,
 				);
 
 				// Load view and send variables
-				$this->load->view('pages/instructions', $data);
+				$this->load->view('games/clean_art', $data);
 
 			break;
 
 			case 'clean_art_card' :
+
+				$score = $this->input->post('score');
+
+				// Prepare variables
+				$data = array
+				(
+					'title' 	=> 'Découvres l\'art',
+					'score' 	=> $score,
+				);
+
+				// Load view and send variables
+				$this->load->view('pages/card', $data);
 
 			break;
 
