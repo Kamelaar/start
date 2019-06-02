@@ -40,10 +40,10 @@
     </div>
 
     <div id="blocklock">
-      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
-      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
-      <img id="winner" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
-      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
+      <img id="loser" class="topArrow"/>
+      <img id="loser" class="topArrow"/>
+      <img id="winner" class="topArrow"/>
+      <img id="loser" class="topArrow"/>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -97,12 +97,14 @@
         }, 1000);
 
         $('#loser').click(function(){
-          Swal.fire({
-            type: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href>Why do I have this issue?</a>'
-          })
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
+            showConfirmButton : false,
+            animation: false,
+            customClass: {
+                popup: 'animated tada'
+              }
+            })
         });
 
         $('#winner').click(function(){
@@ -114,10 +116,8 @@
                 data:{time:time,points:points},
                  success: function(repons) {
                   swal.fire({
-                  title: "Bravo tu retrouvé la bonne couleur!",
-                  text: "Maintenant tu peux continuer",
-                  type: "success",
-                  confirmButtonText: 'Suivant',
+                  background: 'no-repeat center url(/start/assets/img/colorArt/popup-bravo.png)',
+                  showConfirmButton : false,
                   animation: false,
                   customClass: {
                       popup: 'animated tada'

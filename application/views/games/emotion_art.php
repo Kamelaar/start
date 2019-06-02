@@ -114,10 +114,8 @@ Highcharts.chart('block', {
               function() 
               {
                 swal.fire({
-                title: "Bravo tu sauvé le tableau!",
-                text: "Maintenant tu peux continuer",
-                type: "success",
-                confirmButtonText: 'Suivant',
+                background: 'no-repeat center url(/start/assets/img/emotionArt/popup-bravo.png)',
+                showConfirmButton : false,
                 animation: false,
                 customClass: {
                     popup: 'animated tada'

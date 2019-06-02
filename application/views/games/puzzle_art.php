@@ -71,10 +71,8 @@
                 containment: '#puzzle-containment',
                 onComplete: function(){
                     swal.fire({
-                    title: "Bravo tu reconstitué le tableau!",
-                    text: "Maintenant tu peux continuer",
-                    type: "success",
-                    confirmButtonText: 'Suivant',
+                    background: 'no-repeat center url(/start/assets/img/puzzleArt/popup-bravo.png)',
+                    showConfirmButton : false,
                     animation: false,
                     customClass: {
                         popup: 'animated tada'
@@ -133,7 +131,7 @@
           countdown = --countdown <= 0 ? 10: countdown;
 
           countdownNumberEl.textContent = countdown;
-        }, 1000);
+        },  );
     </script>
     <script>
       $(document).ready(function(){

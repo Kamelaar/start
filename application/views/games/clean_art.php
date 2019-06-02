@@ -65,7 +65,7 @@
             if (progress == '0.6875'){
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
-  					confirmButtonText: 'Suivant',
+  					showConfirmButton : false,
             animation: false,
             customClass: {
                 popup: 'animated tada'
