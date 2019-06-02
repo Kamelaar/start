@@ -22,10 +22,108 @@ class Game extends CI_Controller {
 
 	}
 
+	public function game_manager($target)
+	{
+		switch ($target)
+		{
+			case 'clean_art' :
+
+				$player_name = $this->security->xss_clean($this->input->post('player_name'));
+
+				// Create session
+				$user_data = array
+				(
+					'authorized'	=> 1,
+					'player_name'	=> $player_name,
+					'score'			=> 0,
+				);
+				$this->session->set_userdata($user_data);
+
+				// Prepare variables
+				$data = array
+				(
+					'title' 		=> 'Règles du jeu',
+					'player_name' 	=> $player_name,
+					'rand_img'		=> $this->image_model->rand_image('Clean_Art')->img_file,
+				);
+
+				// Load view and send variables
+				$this->load->view('games/clean_art', $data);
+
+			break;
+
+			case 'clean_art_card' :
+
+				$score = $this->input->post('score');
+
+				// Prepare variables
+				$data = array
+				(
+					'title' 	=> 'Découvres l\'art',
+					'score' 	=> $score,
+				);
+
+				// Load view and send variables
+				$this->load->view('pages/card', $data);
+
+			break;
+
+			case 'puzzle_art' :
+
+			break;
+
+			case 'puzzle_art_card' :
+
+			break;
+
+			case 'roulette_art' :
+
+			break;
+
+			case 'roulette_art_card' :
+
+			break;
+
+			case 'emotion_art' :
+
+			break;
+
+			case 'emotion_art_card' :
+
+			break;
+
+			case 'quizz_art' :
+
+			break;
+
+			case 'quizz_art_card' :
+
+			break;
+
+			case 'end_game' :
+
+			break;
+
+		}
+	}
+
+	public function score()
+	{
+		$this->session->set_userdata('score', 2);
+
+	}
+
+
+	public function get_rand_image($game)
+	{
+
+
+	}
+
 	public function clean_art()
 	{
 		$this->load->view('games/clean_art');
-		$timeCl = $this->input->post('time');	
+		$timeCl = $this->input->post('time');
 	}
 	public function roulette_art()
 	{
