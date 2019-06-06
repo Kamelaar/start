@@ -54,7 +54,7 @@ class Game extends CI_Controller {
 
 			case 'clean_art_card' :
 
-				$score = $this->input->post('score');
+				$score = $this->input->post('time');
 
 				// Prepare variables
 				$data = array

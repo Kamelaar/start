@@ -83,12 +83,14 @@
   					})
             .then(function() {
 
-                $.ajax({              //request ajax
-					type:"post",
-                url:"score",
-                data:{score : score},
-				cache: false,
-                 success: function(data) {
+				$.ajax({              //request ajax
+					url:"<?php echo site_url('game_manager/clean_art_card')?>",
+					type:'POST',
+					data:{time:time},
+					success: function(repons) {
+						// METTRE LA FICHER ARTISTE ICI //
+						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+						document.location.href="clean_art_card";
 					},
                  error: function() {
                     alert("Invalide!");
