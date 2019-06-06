@@ -31,7 +31,7 @@
     }
     </style>
     <span class="container center-block">
-      <img id="robot" src="<?php echo base_url() ?>assets/img/cleanArt/image1.jpg" />
+      <img id="robot" src="<?php echo base_url('assets/img/cleanArt/' . $rand_img) ?>" />
       <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/dust.png" />
       <div id="progress">0%</div>
     </span>
@@ -59,6 +59,7 @@
         
         var countdownNumberEl = document.getElementById('countdown-number');
         var countdown = 60;
+
         $("#progress").hide();
 
         $('#redux').eraser({
@@ -66,8 +67,11 @@
           	var progress = p;
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
+
+				let score = countdownNumberEl.textContent;
+
             swal.fire({
-            background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
+                background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
   					showConfirmButton : true,
             confirmButtonClass : 'placeButton',
             animation: false,
@@ -76,22 +80,26 @@
               }
   					})
             .then(function() {
-              var time = countdownNumberEl.textContent;
-                $.ajax({              //request ajax
-                url:"<?php echo site_url('Game/clean_art')?>",
-                type:'POST',
-                data:{time:time},
-                 success: function(repons) {
-                        // METTRE LA FICHER ARTISTE ICI //
-                        // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                        document.location.href="puzzle_art";
-                           },
+
+				$.ajax({              //request ajax
+					url:"<?php echo site_url('game_manager/clean_art_card')?>",
+					type:'POST',
+					data:{time:time},
+					success: function(repons) {
+						// METTRE LA FICHER ARTISTE ICI //
+						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
+						document.location.href="clean_art_card";
+					},
                  error: function() {
                     alert("Invalide!");
                   }
-              
-                });
-            });
+
+                })
+				;
+            })
+            // .then(function() {
+			// 	document.location.href = "clean_art_card";
+            // });
           }
         }
       });
