@@ -28,6 +28,9 @@
     .swal2-popup {
       height: 600px !important;
     }
+    .placeButton{
+        margin-top: 150px;
+    }
     </style>
     <div id="wrapper">
         <div id="content">
@@ -106,13 +109,9 @@
 
         $('#btnConfirm').click(function(){
             Swal.fire({
-              title: 'Tu penses avoir assemblé le bon tableau?',
-              type: 'question',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Oui ! Jeu suivant.',
-              cancelButtonText : 'Non ! Rejouer.',
+            background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-bravo.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
               animation: false,
                 customClass: {
                     popup: 'animated tada'
@@ -151,7 +150,8 @@
       $(document).ready(function(){
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-regle.png)',
-            showConfirmButton : false
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton'
             })
       })
     </script>

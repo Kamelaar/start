@@ -6,10 +6,13 @@
  * Time: 10:59
  */
 ?>
+
 <!DOCTYPE html><html lang="en">
 <head>
     <meta charset="utf-8">
     <title>[START] | PuzzleArt</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="description" content="A jQuery plugin for turning an image into a nico puzzle game.">
     <link rel="shortcut icon" href="../../images/start-logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/grids-responsive-min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/puzzleart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+
     <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
@@ -26,8 +30,8 @@
     background: url("<?php echo base_url() ?>assets/img/background/PUZZLE-ART-START.png");
     background-size: cover;
     }
-    .swal2-popup {
-      height: 600px !important;
+    .placeButton{
+        margin-top: 150px;
     }
     </style>
     <div id="puzzle-containment" style="margin-left:2%;margin-right:2%;margin-top: 50vh;transform: translateY(-50%); /margin:30px 0;padding:10px;text-align:center;background-color: none">
@@ -72,7 +76,8 @@
                 onComplete: function(){
                     swal.fire({
                     background: 'no-repeat center url(/start/assets/img/puzzleArt/popup-bravo.png)',
-                    showConfirmButton : false,
+                    showConfirmButton : true,
+                    confirmButtonClass : 'placeButton',
                     animation: false,
                     customClass: {
                         popup: 'animated tada'
@@ -131,13 +136,14 @@
           countdown = --countdown <= 0 ? 10: countdown;
 
           countdownNumberEl.textContent = countdown;
-        },  );
+        }, 1000);
     </script>
     <script>
       $(document).ready(function(){
             swal.fire({
-            background: 'no-repeat center url(/start/assets/img/puzzleArt/popup-regle.png)',
-            showConfirmButton : false
+            background: "no-repeat center url(<?php echo base_url('assets/img/puzzleArt/popup-regle.png') ?>",
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton'
             })
       })
     </script>

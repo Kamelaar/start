@@ -25,7 +25,7 @@ class Game extends CI_Controller {
 	{
 		$this->load->view('welcome_message',$name);
 		$name = $this->input->post('name');
-		//$this->session->set_userdata('name', $name);
+
 	}
 
 	public function clean_art()
@@ -35,11 +35,11 @@ class Game extends CI_Controller {
 
 		$this->session->set_userdata('score', $timeCleanArt);
 	}
+
 	public function roulette_art()
 	{
 		$this->load->view('games/roulette_art');
 		$timeRo = $this->input->post('time');
-
 
 		$this->session->set_userdata('score', $timeRo + $this->session->userdata('score'));
 	}
@@ -77,6 +77,11 @@ class Game extends CI_Controller {
 		);
 
 		$this->load->view('games/score_final',$data);
+	}
+
+	public function logout()
+	{
+		$this->load->view('logout.php');
 	}
 }
 

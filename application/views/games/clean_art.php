@@ -26,6 +26,9 @@
     .swal2-popup {
       height: 600px !important;
     }
+    .placeButton{
+        margin-top: 175px;
+    }
     </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url() ?>assets/img/cleanArt/image1.jpg" />
@@ -65,7 +68,8 @@
             if (progress == '0.6875'){
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
-  					showConfirmButton : false,
+  					showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
             animation: false,
             customClass: {
                 popup: 'animated tada'
@@ -136,8 +140,9 @@
       $(document).ready(function(){
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/cleanArt/popup-regle.png)',
-            showConfirmButton : false
-            })
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton'
+             })
       })
     </script>
 

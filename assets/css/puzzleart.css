@@ -158,3 +158,6 @@ to {
   stroke-dashoffset: 200px;
 }
 }
+.swal2-popup {
+  height: 600px !important;
+}

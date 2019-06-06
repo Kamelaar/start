@@ -22,6 +22,9 @@
     .swal2-popup {
       height: 600px !important;
     }
+    .placeButton{
+        margin-top: 150px;
+    }
     </style>
     <img id="imgEmotion" src="<?php echo base_url() ?>assets/img/emotionArt/david.jpg">
     <div id="container">
@@ -115,7 +118,8 @@ Highcharts.chart('block', {
               {
                 swal.fire({
                 background: 'no-repeat center url(/start/assets/img/emotionArt/popup-bravo.png)',
-                showConfirmButton : false,
+                showConfirmButton : true,
+                confirmButtonClass : 'placeButton',
                 animation: false,
                 customClass: {
                     popup: 'animated tada'
@@ -146,7 +150,8 @@ Highcharts.chart('block', {
       $(document).ready(function(){
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/emotionArt/popup-regle.png)',
-            showConfirmButton : false
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton'
             })
       })
     </script>

@@ -17,7 +17,8 @@ $(document).ready(function () {
 
  swal.fire({
 background: 'no-repeat center url(/start/assets/img/colorArt/popup-regle.png)',
-showConfirmButton : false
+showConfirmButton : true,
+confirmButtonClass : 'placeButton'
   }).then(('load', function(event){
   $('#blocklock').show();
   var $this = $('.run-functions-button');

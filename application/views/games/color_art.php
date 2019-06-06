@@ -24,6 +24,9 @@
   .swal2-popup {
       height: 600px !important;
   }
+  .placeButton{
+        margin-top: 150px;
+  }
 	</style>
 
 	<section id="examples" class="examples-section">
@@ -40,10 +43,10 @@
     </div>
 
     <div id="blocklock">
-      <img id="loser" class="topArrow"/>
-      <img id="loser" class="topArrow"/>
+      <img id="loser1" class="topArrow"/>
+      <img id="loser2" class="topArrow"/>
       <img id="winner" class="topArrow"/>
-      <img id="loser" class="topArrow"/>
+      <img id="loser3" class="topArrow"/>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -96,10 +99,35 @@
           countdownNumberEl.textContent = countdown;
         }, 1000);
 
-        $('#loser').click(function(){
+        $('#loser1').click(function(){
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
-            showConfirmButton : false,
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+            animation: false,
+            customClass: {
+                popup: 'animated tada'
+              }
+            })
+        });
+
+        $('#loser2').click(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+            animation: false,
+            customClass: {
+                popup: 'animated tada'
+              }
+            })
+        });
+
+        $('#loser3').click(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
             animation: false,
             customClass: {
                 popup: 'animated tada'
@@ -117,7 +145,8 @@
                  success: function(repons) {
                   swal.fire({
                   background: 'no-repeat center url(/start/assets/img/colorArt/popup-bravo.png)',
-                  showConfirmButton : false,
+                  showConfirmButton : true,
+                  confirmButtonClass : 'placeButton',
                   animation: false,
                   customClass: {
                       popup: 'animated tada'
