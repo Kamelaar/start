@@ -54,11 +54,26 @@ to {
 }
 .topArrow{
 	height: 50px;
-	width :50px;
-	margin : 15px;
+	width :80px;
+	margin : 10px;
+	border:0px;
 }
 #blocklock{
+	display: inline-flex;
+	width: 400px;
 	position : absolute;
-	top: 91%; left: 50%; /* à 50%/50% du parent référent */
+	top: 83%; left: 50%; /* à 50%/50% du parent référent */
 	transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
 }
+  #loser1 {
+    border-radius : 20px;
+  }
+  #loser2 {
+    border-radius : 20px;
+  }
+  #loser3 {
+    border-radius : 20px;
+  }
+  #winner {
+    border-radius : 20px;
+  }

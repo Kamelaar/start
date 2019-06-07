@@ -15,11 +15,10 @@ $(document).ready(function () {
   var examplesHTML = Mustache.to_html($('#image-section-template').html(), imageArray);
   $('#example-images').append(examplesHTML);
 
-  Swal.fire({
-  imageUrl: 'https://placeholder.pics/svg/600x600',
-  imageWidth: 600,
-  imageHeight: 600,
-  confirmButtonText: 'Jai compris'
+ swal.fire({
+background: 'no-repeat center url(/start/assets/img/colorArt/popup-regle.png)',
+showConfirmButton : true,
+confirmButtonClass : 'placeButton'
   }).then(('load', function(event){
   $('#blocklock').show();
   var $this = $('.run-functions-button');

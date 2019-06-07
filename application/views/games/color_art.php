@@ -12,6 +12,8 @@
 		<title>[START] | COLORART</title>
 		  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/screen.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/colorArt.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
+
 	</head>
 	<body>
 	<style>
@@ -19,6 +21,12 @@
 	background: url("<?php echo base_url() ?>assets/img/background/PALETTTE-COULEUR-START.png");
   background-size: cover;
 	}
+  .swal2-popup {
+      height: 600px !important;
+  }
+  .placeButton{
+        margin-top: 150px;
+  }
 	</style>
 
 	<section id="examples" class="examples-section">
@@ -35,10 +43,10 @@
     </div>
 
     <div id="blocklock">
-      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
-      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
-      <img id="winner" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
-      <img id="loser" class="topArrow" src="<?php echo base_url() ?>assets/img/colorArt/svg/go-to-the-top-hand-drawn-interface-symbol-with-an-arrow-pointing-up-to-a-thin-rectangle.svg" />
+      <img id="loser1" class="topArrow"/>
+      <img id="loser2" class="topArrow"/>
+      <img id="winner" class="topArrow"/>
+      <img id="loser3" class="topArrow"/>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -91,13 +99,40 @@
           countdownNumberEl.textContent = countdown;
         }, 1000);
 
-        $('#loser').click(function(){
-          Swal.fire({
-            type: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href>Why do I have this issue?</a>'
-          })
+        $('#loser1').click(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+            animation: false,
+            customClass: {
+                popup: 'animated tada'
+              }
+            })
+        });
+
+        $('#loser2').click(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+            animation: false,
+            customClass: {
+                popup: 'animated tada'
+              }
+            })
+        });
+
+        $('#loser3').click(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/colorArt/popup-oups.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+            animation: false,
+            customClass: {
+                popup: 'animated tada'
+              }
+            })
         });
 
         $('#winner').click(function(){
@@ -109,25 +144,16 @@
                 data:{time:time,points:points},
                  success: function(repons) {
                   swal.fire({
-                  title: "Bravo tu sauvé le tableau!",
-                  text: "Maintenant tu peux continuer",
-                  type: "success",
-                  confirmButtonText: 'Suivant',
-                  //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-                  backdrop: `
-                    rgba(0,0,123,0.4)
-                    url("/start/assets/img/logo-creteil.png")
-                    center left
-                    no-repeat
-                  `,
-                  //METTRE DANS CETTE URL LE FOND DE LA BOX
-                  background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+                  background: 'no-repeat center url(/start/assets/img/colorArt/popup-bravo.png)',
+                  showConfirmButton : true,
+                  confirmButtonClass : 'placeButton',
+                  animation: false,
                   customClass: {
                       popup: 'animated tada'
                     }
                   })
                   .then(function() {
-                      document.location.href="puzzle_art";
+                      document.location.href="score_final";
                   });
                     },
                  error: function() {
@@ -139,5 +165,6 @@
 
     });
   </script>
+
 	</body>
 </html>

@@ -13,6 +13,7 @@
      <title>[START] | CleanArt</title>
 
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/cleanart.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
   </head>
 
@@ -21,6 +22,12 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png");
     background-size: cover;
+    }
+    .swal2-popup {
+      height: 600px !important;
+    }
+    .placeButton{
+        margin-top: 175px;
     }
     </style>
     <span class="container center-block">
@@ -60,19 +67,10 @@
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
             swal.fire({
-  					title: "Bravo tu sauvé le tableau!",
-  					text: "Maintenant tu peux continuer",
-  					type: "success",
-  					confirmButtonText: 'Suivant',
-            //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-            backdrop: `
-              rgba(0,0,123,0.4)
-              url("/start/assets/img/logo-creteil.png")
-              center left
-              no-repeat
-            `,
-            //METTRE DANS CETTE URL LE FOND DE LA BOX
-            background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+            background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
+  					showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+            animation: false,
             customClass: {
                 popup: 'animated tada'
               }
@@ -98,10 +96,6 @@
         }
       });
         
-          
-
-          
-
         $('#resetBtn').click(function(event) {
           $('#redux').eraser('reset');
             $('#progress').html('0%');
@@ -143,7 +137,14 @@
     </script>
 
     <script>
-</script>
+      $(document).ready(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/cleanArt/popup-regle.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton'
+             })
+      })
+    </script>
 
   </body>
 

@@ -25,6 +25,12 @@
     background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png");
     background-size: cover;
     }
+    .swal2-popup {
+      height: 600px !important;
+    }
+    .placeButton{
+        margin-top: 150px;
+    }
     </style>
     <div id="wrapper">
         <div id="content">
@@ -103,25 +109,13 @@
 
         $('#btnConfirm').click(function(){
             Swal.fire({
-              title: 'Tu penses avoir reconstitué le tableau?',
-              type: 'question',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Oui ! Jeu suivant.',
-              cancelButtonText : 'Non ! Rejouer.',
-                //METTRE DANS CETTE URL UN GIF OU UNE IMAGE SUR LE VOILE
-                backdrop: `
-                  rgba(0,0,123,0.4)
-                  url("/start/assets/img/logo-creteil.png")
-                  center left
-                  no-repeat
-                `,
-                //METTRE DANS CETTE URL LE FOND DE LA BOX
-                background: '#ecf0f1 url(/start/assets/img/logo-creteil.png)',
+            background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-bravo.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton',
+              animation: false,
                 customClass: {
                     popup: 'animated tada'
-                  }
+                }
             }).then((result) => {
               if (result.value) {
                var time = countdownNumberEl.textContent;
@@ -151,6 +145,15 @@
           countdownNumberEl.textContent = countdown;
         }, 1000);
       
+    </script>
+    <script>
+      $(document).ready(function(){
+            swal.fire({
+            background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-regle.png)',
+            showConfirmButton : true,
+            confirmButtonClass : 'placeButton'
+            })
+      })
     </script>
 </body>
 </html>
