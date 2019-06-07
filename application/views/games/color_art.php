@@ -5,16 +5,18 @@
     $color2 = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
     $color3 = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
     
+    $lienImage = base_url('assets/img/' . $rand_img);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+    <meta charset="UTF-8" />
 		<title>[START] | COLORART</title>
 		  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/screen.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/colorArt.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
 
-	</head>
+	</head>  
 	<body>
 	<style>
 	body{
@@ -28,7 +30,7 @@
         margin-top: 150px;
   }
 	</style>
-
+  <input type=hidden id=lien value=<?php echo $lienImage; ?>  
 	<section id="examples" class="examples-section">
 	    <div class="container">	
 	      <div id="example-images"></div>
@@ -64,7 +66,7 @@
           <span class="no-touch-label">Click</span>
           <span class="touch-label">Tap</span>
         </button>
-        <img class="target-image" src="{{file}}" />
+        <img class="target-image" src="{{{file}}}" />
       </div>
       <div class="color-thief-output"></div>
     </div>

@@ -37,7 +37,7 @@
     <div id="puzzle-containment" style="margin-left:2%;margin-right:2%;margin-top: 50vh;transform: translateY(-50%); /margin:30px 0;padding:10px;text-align:center;background-color: none">
         <div class="pure-g" style="max-width:1280px;margin:auto">
             <div class="pure-u-1 pure-u-md-1-2"><div style="margin:10px">
-                <img id="source_image" class="pure-img" src="<?php echo base_url() ?>assets/img/puzzleArt/image.jpg">
+                <img id="source_image" class="pure-img" src="<?php echo base_url('assets/img/' . $rand_img) ?>">
             </div></div>
             <div class="pure-u-1 pure-u-md-1-2">
                 <div id="pile" style="margin:10px">
@@ -77,6 +77,7 @@
                     swal.fire({
                     background: 'no-repeat center url(/start/assets/img/puzzleArt/popup-bravo.png)',
                     showConfirmButton : true,
+                    confirmButtonColor: '#abe2cb',
                     confirmButtonClass : 'placeButton',
                     animation: false,
                     customClass: {
@@ -143,6 +144,7 @@
             swal.fire({
             background: "no-repeat center url(<?php echo base_url('assets/img/puzzleArt/popup-regle.png') ?>",
             showConfirmButton : true,
+            confirmButtonColor: '#abe2cb',
             confirmButtonClass : 'placeButton'
             })
       })

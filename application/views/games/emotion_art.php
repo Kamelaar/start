@@ -26,7 +26,7 @@
         margin-top: 150px;
     }
     </style>
-    <img id="imgEmotion" src="<?php echo base_url() ?>assets/img/emotionArt/david.jpg">
+    <img id="imgEmotion" src="<?php echo base_url('assets/img/' . $rand_img) ?>">
     <div id="container">
     	<ul>
     		<li><img class="emo animated infinite heartBeat" src="<?php echo base_url() ?>assets/img/emotionArt/emoticones/émoticoneAngry.png"></li>

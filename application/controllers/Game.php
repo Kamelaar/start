@@ -27,45 +27,77 @@ class Game extends CI_Controller {
 		$name = $this->input->post('name');
 
 	}
-
+	
 	public function clean_art()
 	{
-		$this->load->view('games/clean_art');
+		
+		$data = array
+				(
+					'rand_img'		=> $this->image_model->rand_image('Clean_Art')->img_file,
+				);
+
 		$timeCleanArt = $this->input->post('time');
 
 		$this->session->set_userdata('score', $timeCleanArt);
+
+		$this->load->view('games/clean_art',$data);
 	}
 
 	public function roulette_art()
 	{
-		$this->load->view('games/roulette_art');
+		$data = array
+		(
+			'rand_img'		=> $this->image_model->rand_image('Roulette_Art')->img_file,
+		);
+
 		$timeRo = $this->input->post('time');
 
 		$this->session->set_userdata('score', $timeRo + $this->session->userdata('score'));
+
+		$this->load->view('games/roulette_art',$data);
 	}
 
 	public function color_art()
 	{
-		$this->load->view('games/color_art');
+		$data = array
+		(
+			'rand_img'		=> $this->image_model->rand_image('Color_Art')->img_file,
+		);
+
 		$timeCo = $this->input->post('time');
 
 		$this->session->set_userdata('score', $timeCo + $this->session->userdata('score'));
+
+		$this->load->view('games/color_art',$data);
 	}
   
 	public function puzzle_art()
 	{
-		$this->load->view('games/puzzle_art');
+		$data = array
+		(
+			'rand_img'		=> $this->image_model->rand_image('Puzzle_Art')->img_file,
+		);
+
 		$timePu = $this->input->post('time');	
 
 		$this->session->set_userdata('score', $timePu + $this->session->userdata('score'));
+
+		$this->load->view('games/puzzle_art',$data);
 	}
 
 	public function emotion_art()
 	{
-		$this->load->view('games/emotion_art');
+		$data = array
+		(
+			'rand_img'		=> $this->image_model->rand_image('Emotion_Art')->img_file,
+		);
+
 		$timeEm = $this->input->post('time');
 
 		$this->session->set_userdata('score', $timeEm + $this->session->userdata('score'));
+
+		$this->load->view('games/emotion_art',$data);
+
 	}
 
 	public function score_final()
@@ -83,5 +115,6 @@ class Game extends CI_Controller {
 	{
 		$this->load->view('logout.php');
 	}
+	
 }
 
