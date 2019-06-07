@@ -77,6 +77,7 @@
                     swal.fire({
                     background: 'no-repeat center url(/start/assets/img/puzzleArt/popup-bravo.png)',
                     showConfirmButton : true,
+                    confirmButtonColor: '#abe2cb',
                     confirmButtonClass : 'placeButton',
                     animation: false,
                     customClass: {
@@ -143,6 +144,7 @@
             swal.fire({
             background: "no-repeat center url(<?php echo base_url('assets/img/puzzleArt/popup-regle.png') ?>",
             showConfirmButton : true,
+            confirmButtonColor: '#abe2cb',
             confirmButtonClass : 'placeButton'
             })
       })

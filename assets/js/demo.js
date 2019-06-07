@@ -3,16 +3,18 @@
  */
 
 $(document).ready(function () {
+  var lienImage = $('#lien').val();
 
   // ---------------------
   // Color Thief demo code
   // ---------------------
   var imageArray = {images: [
-      {'file': '../assets/img/colorArt/Miro Plumes de paon.png'}
+      {'file': lienImage}
   ]};
-
+  console.log(imageArray);
   // Render example images
   var examplesHTML = Mustache.to_html($('#image-section-template').html(), imageArray);
+  console.log(examplesHTML);
   $('#example-images').append(examplesHTML);
 
  swal.fire({
@@ -77,4 +79,11 @@ confirmButtonClass : 'placeButton'
     return check;
   };
 
+  function encode_utf8(s) {
+  return unescape(encodeURIComponent(s));
+}
+ 
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
 });

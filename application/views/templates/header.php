@@ -130,6 +130,17 @@
 					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Puzzle_Art">Fiche artiste</a>
 				</div>
 			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="fas fa-gamepad"></i>
+					<span>Emotion Art</span>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/picture/Emotion_Art">Images du jeu</a>
+					<a class="dropdown-item" href="<?php echo base_url(); ?>admin/card/Emotion_Art">Fiche artiste</a>
+				</div>
+			</li>
 		  
 		<?php endif; ?>
 		  
