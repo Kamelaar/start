@@ -9,7 +9,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 <title>[START] | RouletteArt</title>
 
 <!-- Syntax highlighting, ignore this -->
@@ -26,10 +26,23 @@
     background-size: cover;
     }
     .swal2-popup {
-      height: 600px !important;
+    height: 600px !important;
     }
     .placeButton{
-        margin-top: 150px;
+    margin-top: 150px;
+    }
+    .fancy2 .slot2 li:nth-child(3) {
+    background: center url('<?php echo base_url('assets/img/' . $rand_img) ?>');
+    background-size: cover;
+    }
+    .fancy2 .slot2 li:nth-child(2) {
+    background: center url('<?php echo base_url('assets/img/' . $rand_img) ?>');
+    background-size: cover;
+    }
+    .fancy2 .slot2 li:nth-child(1),
+    .fancy2 .slot2 li:nth-child(8) {
+    background: center url('<?php echo base_url('assets/img/' . $rand_img) ?>');
+    background-size: cover;
     }
     </style>
     <div id="wrapper">

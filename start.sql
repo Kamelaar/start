@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 07 juin 2019 à 12:55
+-- Généré le :  ven. 07 juin 2019 à 13:18
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `game_image` (
   `img_file` text NOT NULL,
   `img_dispo` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `game_image`
@@ -91,6 +91,15 @@ INSERT INTO `game_image` (`id`, `game_link`, `game_name`, `work_of_art`, `img_fi
 (79, 'Roulette_Art', 'Roulette Art', 'd7', 'Droite 7.png', 'droite'),
 (80, 'Roulette_Art', 'Roulette Art', 'd8', 'Droite 8.png', 'droite'),
 (81, 'Roulette_Art', 'Roulette Art', 'd9', 'Droite 9.png', 'droite'),
+(82, 'Roulette_Art', 'Roulette Art', 'g1', 'Gauche 1.png', NULL),
+(83, 'Roulette_Art', 'Roulette Art', 'g2', 'Gauche 2.png', NULL),
+(84, 'Roulette_Art', 'Roulette Art', 'g3', 'Gauche 3.png', NULL),
+(85, 'Roulette_Art', 'Roulette Art', 'g4', 'Gauche 4.png', NULL),
+(86, 'Roulette_Art', 'Roulette Art', 'g5', 'Gauche 5.png', NULL),
+(87, 'Roulette_Art', 'Roulette Art', 'g6', 'Gauche 6.png', NULL),
+(88, 'Roulette_Art', 'Roulette Art', 'g7', 'Gauche 7.png', NULL),
+(89, 'Roulette_Art', 'Roulette Art', 'g8', 'Gauche 8.png', NULL),
+(90, 'Roulette_Art', 'Roulette Art', 'g9', 'Gauche 9.png', NULL),
 (72, 'Emotion_Art', 'Emotion_Art', 'toulousseLautrec', 'Toulousse-Lautrec-le-chat.png', NULL),
 (33, 'Clean_Art', 'Clean Art', 'laJoconde', 'La Joconde - Léonard de Vinci .PNG', NULL),
 (34, 'Clean_Art', 'Clean Art', 'laVictoire', 'La Victoire de Samothrace.jpg', NULL),
