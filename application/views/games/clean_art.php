@@ -31,7 +31,7 @@
     }
     </style>
     <span class="container center-block">
-      <img id="robot" src="<?php echo base_url('assets/img/cleanArt/' . $rand_img) ?>" />
+      <img id="robot" src="<?php echo base_url('assets/img/' . $rand_img) ?>" />
       <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/dust.png" />
       <div id="progress">0%</div>
     </span>

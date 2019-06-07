@@ -69,7 +69,7 @@
 					<h5 class="modal-title" id="exampleModalLabel">Saisis ton nom et appuies sur commencer</h5>
 				</div>
 
-				<?= form_open('game/game_manager/clean_art') ?>
+				<?= form_open('game/clean_art') ?>
 
 				<div class="modal-body">
 					<input type="text" class="form-control" id="player_name" name="player_name">
