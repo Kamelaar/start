@@ -31,25 +31,61 @@
     .placeButton{
     margin-top: 150px;
     }
-    .fancy2 .slot2 li:nth-child(3) {
-    background: center url('<?php echo base_url('assets/img/' . $rand_img) ?>');
+
+	/*Roulette gauche*/
+
+	.fancy .slot li:nth-child(4)
+	{
+		background: center url('<?php echo base_url('assets/img/' . $img_left_4) ?>');
+		background-size: cover;
+	}
+	.fancy .slot li:nth-child(3)
+	{
+		background: center url('<?php echo base_url('assets/img/' . $img_left_3) ?>');
+		background-size: cover;
+	}
+	.fancy .slot li:nth-child(2)
+	{
+		background: center url('<?php echo base_url('assets/img/' . $img_left_1) ?>');
+		background-size: cover;
+	}
+	.fancy .slot li:nth-child(1),
+	.fancy .slot li:nth-child(8)
+	{
+		background: center url('<?php echo base_url('assets/img/' . $img_left_2) ?>');
+		background-size: cover;
+	}
+
+	/*roulette droite*/
+	
+	.fancy2 .slot2 li:nth-child(4)
+	{
+		background: center url('<?php echo base_url('assets/img/' . $img_right_4) ?>');
+		background-size: cover;
+	}
+    .fancy2 .slot2 li:nth-child(3)
+	{
+    background: center url('<?php echo base_url('assets/img/' . $img_right_2) ?>');
     background-size: cover;
     }
-    .fancy2 .slot2 li:nth-child(2) {
-    background: center url('<?php echo base_url('assets/img/' . $rand_img) ?>');
+    .fancy2 .slot2 li:nth-child(2)
+	{
+    background: center url('<?php echo base_url('assets/img/' . $img_right_3) ?>');
     background-size: cover;
     }
     .fancy2 .slot2 li:nth-child(1),
     .fancy2 .slot2 li:nth-child(8) {
-    background: center url('<?php echo base_url('assets/img/' . $rand_img) ?>');
+    background: center url('<?php echo base_url('assets/img/' . $img_right_1) ?>');
     background-size: cover;
     }
+
     </style>
     <div id="wrapper">
         <div id="content">
             <div class="fancy">
                 <ul class="slot">
                     <!-- In reverse order so the 7s show on load -->
+					 <li><span>4</span></li>
                     <li><span>3</span></li>
                     <li><span>2</span></li>
                     <li><span>1</span></li>
@@ -59,7 +95,8 @@
             <div class="fancy2">
                 <ul class="slot2">
                     <!-- In reverse order so the 7s show on load -->
-                    <li><span>3</span></li>
+					<li><span>4</span></li>
+					<li><span>3</span></li>
                     <li><span>2</span></li>
                     <li><span>1</span></li>
                 </ul>

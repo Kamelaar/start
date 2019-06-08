@@ -82,13 +82,13 @@
             .then(function() {
 
 				$.ajax({              //request ajax
-					url:"<?php echo site_url('game_manager/clean_art_card')?>",
+					url:"<?php echo site_url('roulette_art')?>",
 					type:'POST',
 					data:{time:time},
 					success: function(repons) {
 						// METTRE LA FICHER ARTISTE ICI //
 						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-						document.location.href="clean_art_card";
+						document.location.href="roulette_art";
 					},
                  error: function() {
                     alert("Invalide!");

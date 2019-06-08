@@ -139,10 +139,11 @@ class Admin extends CI_Controller
 			{
 				$data = array('upload_data' => $this->upload->data());
 				$image = $_FILES['userfile']['name']; //name must be userfile
+				$right_image = $_FILES['userfile2']['name'];
 
 
 			}
-			$this->admin_model->insert_image($image);
+			$this->admin_model->insert_image($image, $right_image);
 			$this->session->set_flashdata('success','Image ajoutée avec succès!');
 
 			redirect('admin/picture/'.$game_link);

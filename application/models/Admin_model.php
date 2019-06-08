@@ -45,15 +45,33 @@ class Admin_model extends CI_Model{
 		return $query->result();
 	}
 
-	public function insert_image($image)
+	public function insert_image($image, $right_image = " ")
 	{
-		// assign the data to an array
-		$data = array(
-			'work_of_art'	=> $this->input->post('image_name'),
-			'img_file'		=> $image,
-			'game_link'		=> $this->input->post('game_link'),
-			'game_name'		=> $this->input->post('game_name'),
-		);
+
+		if(!empty($right_image))
+		{
+			// assign the data to an array
+			$data = array
+			(
+				'work_of_art'		=> $this->input->post('image_name'),
+				'img_file'			=> $image,
+				'img_file_right'	=> $right_image,
+				'game_link'			=> $this->input->post('game_link'),
+				'game_name'			=> $this->input->post('game_name'),
+			);
+		}
+		else
+		{
+			// assign the data to an array
+			$data = array
+			(
+				'work_of_art'	=> $this->input->post('image_name'),
+				'img_file'		=> $image,
+				'game_link'		=> $this->input->post('game_link'),
+				'game_name'		=> $this->input->post('game_name'),
+			);
+		}
+
 
 		//insert image to the database
 		$this->db->insert('game_image', $data);

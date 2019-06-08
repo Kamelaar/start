@@ -50,8 +50,27 @@
 		</div>
 
 		<div class="col img-game-form">
+
+			<?php if ($game_link == "Roulette_Art") { ?>
+
+			<label>Image de gauche</label>
+
+			<?php }  else {?>
+
 			<label>Image</label>
+
+			<?php } ?>
+
 			<input type="file" class="form-control-file" id="userfile" name="userfile">
+
+			<?php if ($game_link == "Roulette_Art") { ?>
+
+				<br />
+					<label>Image de droite</label>
+					<input type="file" class="form-control-file" id="userfile" name="userfile2">
+
+			<?php } ?>
+
 		</div>
 
 		<div class = "col submit-game-form">

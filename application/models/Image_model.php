@@ -33,13 +33,28 @@ class Image_model extends CI_Model {
 
 	public function rand_image($game)
 	{
-		$this->db->select('img_file');
-		$this->db->where('game_link', $game);
-		$this->db->order_by('rand()');
-//		$this->db->limit('1');
-		$query = $this->db->get('game_image');
+		if ($game == "Roulette_Art")
+		{
+			$this->db->select('img_file, img_file_right');
+			$this->db->where('game_link', $game);
+			$this->db->limit(4);
+			$this->db->order_by('rand()');
+			$query = $this->db->get('game_image');
 
-		return $query->row();
+			return $query->result();
+		}
+		else
+		{
+			$this->db->select('img_file');
+			$this->db->where('game_link', $game);
+			$this->db->order_by('rand()');
+			$query = $this->db->get('game_image');
+
+			return $query->row();
+		}
+
+
+
 	}
 }
 
