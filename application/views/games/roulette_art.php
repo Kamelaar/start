@@ -57,7 +57,6 @@
 	}
 
 	/*roulette droite*/
-	
 	.fancy2 .slot2 li:nth-child(4)
 	{
 		background: center url('<?php echo base_url('assets/img/' . $img_right_4) ?>');

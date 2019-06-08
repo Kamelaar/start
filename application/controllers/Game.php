@@ -45,7 +45,6 @@ class Game extends CI_Controller {
 
 	public function roulette_art()
 	{
-
 		$img_tab = $this->image_model->rand_image('Roulette_Art');
 
 		$data = array
@@ -59,8 +58,6 @@ class Game extends CI_Controller {
 			'img_left_4' 	=> $img_tab[3]->img_file,
 			'img_right_4' 	=> $img_tab[3]->img_file_right,
 		);
-
-		var_dump($data);
 
 		$timeRo = $this->input->post('time');
 
