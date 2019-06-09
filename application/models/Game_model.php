@@ -23,6 +23,8 @@ class Game_model extends CI_Model
 
 	public function get_ranking()
 	{
+		$this->db->limit(10);
+		$this->db->order_by('DESC');
 		$query = $this->db->get('player');
 
 		return $query->result();
