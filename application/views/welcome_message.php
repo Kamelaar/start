@@ -35,7 +35,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/uncover.css')?>" />
 	<!--//banner -->
 	<!--stylesheets-->
-	<link href="<?= base_url('assets/css/style.css')?>" rel='stylesheet' type='text/css' media="all">
+	<link href="<?php base_url()?>assets/css/style.css"  rel='stylesheet' type='text/css' media="all">
 	<!--//stylesheets-->
 	<link href="//fonts.googleapis.com/css?family=Cinzel+Decorative:400,700" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
