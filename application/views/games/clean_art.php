@@ -68,7 +68,7 @@
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
 
-				let score = countdownNumberEl.textContent;
+				let time = countdownNumberEl.textContent;
 
             swal.fire({
                 background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
@@ -80,15 +80,15 @@
               }
   					})
             .then(function() {
-
-				$.ajax({              //request ajax
-					url:"<?php echo site_url('roulette_art')?>",
+				//request ajax
+				$.ajax({
+					url:"<?php echo site_url('game/puzzle_art')?>",
 					type:'POST',
 					data:{time:time},
 					success: function(repons) {
 						// METTRE LA FICHER ARTISTE ICI //
 						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-						document.location.href="roulette_art";
+						document.location.href="puzzle_art";
 					},
                  error: function() {
                     alert("Invalide!");
@@ -97,10 +97,6 @@
                 })
 				;
             })
-            // .then(function() {
-			// 	document.location.href = "clean_art_card";
-            // });
-          }
         }
       });
         

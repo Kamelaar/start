@@ -23,22 +23,21 @@ class Game extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('welcome_message',$name);
-		$name = $this->input->post('name');
-
+		$this->load->view('welcome_message');
 	}
 	
 	public function clean_art()
 	{
-		
 		$data = array
-				(
-					'rand_img'		=> $this->image_model->rand_image('Clean_Art')->img_file,
-				);
+		(
+			'rand_img'	=> $this->image_model->rand_image('Clean_Art')->img_file,
+		);
 
-		$timeCleanArt = $this->input->post('time');
+		// Retrieving the name of player
+		$player_name = $this->input->post('player_name');
 
-		$this->session->set_userdata('score', $timeCleanArt);
+		// Saving the name of the player in session
+		$this->session->set_userdata('player_name', $player_name);
 
 		$this->load->view('games/clean_art',$data);
 	}
@@ -59,9 +58,11 @@ class Game extends CI_Controller {
 			'img_right_4' 	=> $img_tab[3]->img_file_right,
 		);
 
-		$timeRo = $this->input->post('time');
+		// Retrieving the score of clean_art game
+		$score = $this->input->post('time');
 
-		$this->session->set_userdata('score', $timeRo + $this->session->userdata('score'));
+		// Saving the score of clean_art game in session
+		$this->session->set_userdata('score', $score);
 
 		$this->load->view('games/roulette_art',$data);
 	}
@@ -70,7 +71,7 @@ class Game extends CI_Controller {
 	{
 		$data = array
 		(
-			'rand_img'		=> $this->image_model->rand_image('Color_Art')->img_file,
+			'rand_img' => $this->image_model->rand_image('Color_Art')->img_file,
 		);
 
 		$timeCo = $this->input->post('time');
