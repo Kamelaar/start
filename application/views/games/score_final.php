@@ -25,6 +25,31 @@ body{
 	background-size: cover;
 }
 </style>
+
+<table>
+	<thead>
+		<tr>
+			<th>Classement</th>
+			<th>Pseudo</th>
+			<th>Points</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		$i = 1;
+		foreach ($ranking as $player) :
+		?>
+		<tr>
+			<td><?= $i; ?></td>
+			<td><?= $player -> name; ?></td>
+			<td><?= $player -> score; ?></td>
+		</tr>
+		<?php
+		$i++;
+		endforeach;?>
+	</tbody>
+</table>
+
 <h1 id="score"><?php echo $score ?></h1>
 <a href="<?php echo base_url() ?>Game/logout"><img id="home" src="<?php echo base_url() ?>assets/img/score/boutons-home-score.png"></a>
 </body>

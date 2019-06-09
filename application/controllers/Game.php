@@ -42,8 +42,30 @@ class Game extends CI_Controller {
 		$this->load->view('games/clean_art',$data);
 	}
 
+	public function puzzle_art()
+	{
+		// Retrieving the score of clean_art game
+		$score = $this->input->post('time');
+
+		// Saving the score of clean_art game in session
+		$this->session->set_userdata('score', $score);
+
+		$data = array
+		(
+			'rand_img'		=> $this->image_model->rand_image('Puzzle_Art')->img_file,
+		);
+
+		$this->load->view('games/puzzle_art',$data);
+	}
+
 	public function roulette_art()
 	{
+		// Retrieving the score of puzzle_art game
+		$score = $this->input->post('time');
+
+		// Saving the score of puzzle_art game in session
+		$this->session->set_userdata('score', $this->session->userdata('score') + $score);
+
 		$img_tab = $this->image_model->rand_image('Roulette_Art');
 
 		$data = array
@@ -58,64 +80,59 @@ class Game extends CI_Controller {
 			'img_right_4' 	=> $img_tab[3]->img_file_right,
 		);
 
-		// Retrieving the score of clean_art game
-		$score = $this->input->post('time');
-
-		// Saving the score of clean_art game in session
-		$this->session->set_userdata('score', $score);
-
 		$this->load->view('games/roulette_art',$data);
-	}
-
-	public function color_art()
-	{
-		$data = array
-		(
-			'rand_img' => $this->image_model->rand_image('Color_Art')->img_file,
-		);
-
-		$timeCo = $this->input->post('time');
-
-		$this->session->set_userdata('score', $timeCo + $this->session->userdata('score'));
-
-		$this->load->view('games/color_art',$data);
-	}
-  
-	public function puzzle_art()
-	{
-		$data = array
-		(
-			'rand_img'		=> $this->image_model->rand_image('Puzzle_Art')->img_file,
-		);
-
-		$timePu = $this->input->post('time');	
-
-		$this->session->set_userdata('score', $timePu + $this->session->userdata('score'));
-
-		$this->load->view('games/puzzle_art',$data);
 	}
 
 	public function emotion_art()
 	{
+		// Retrieving the score of roulette_art game
+		$score = $this->input->post('time');
+
+		// Saving the score of roulette_art game in session
+		$this->session->set_userdata('score', $this->session->userdata('score') + $score);
+
 		$data = array
 		(
 			'rand_img'		=> $this->image_model->rand_image('Emotion_Art')->img_file,
 		);
 
-		$timeEm = $this->input->post('time');
-
-		$this->session->set_userdata('score', $timeEm + $this->session->userdata('score'));
-
 		$this->load->view('games/emotion_art',$data);
+	}
 
+	public function color_art()
+	{
+		// Retrieving the score of emotion_art game
+		$score = $this->input->post('time');
+
+		// Saving the score of emotion_art game in session
+		$this->session->set_userdata('score', $this->session->userdata('score') + $score);
+
+		$data = array
+		(
+			'rand_img' => $this->image_model->rand_image('Color_Art')->img_file,
+		);
+
+		$this->load->view('games/color_art',$data);
 	}
 
 	public function score_final()
-	{	
+	{
+		// Retrieving the score of color_art game
+		$score = $this->input->post('time');
+
+		// Saving the score of color_art game in session
+		$this->session->set_userdata('score', $this->session->userdata('score') + $score);
+
+		// Storing the player game session in database
+		$this->game_model->insert_player_session($this->session->userdata('player_name'), $this->session->userdata('score'));
+
+		// Getting the global ranking of the game
+		$ranking = $this->game_model->get_ranking();
 		
 		$data = array
 		(
-			'score' => $this->session->userdata('score')
+			'score'		=> $this->session->userdata('score'),
+			'ranking'	=> $ranking,
 		);
 
 		$this->load->view('games/score_final',$data);
