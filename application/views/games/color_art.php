@@ -44,6 +44,8 @@
       </svg>
     </div>
 
+	<?= $description ?>
+
     <div id="blocklock">
       <img id="loser1" class="topArrow"/>
       <img id="loser2" class="topArrow"/>

@@ -99,7 +99,7 @@ class Admin extends CI_Controller
 		$game_pictures = $this->admin_model->get_game_pictures($game);
 
 		$title = $this->admin_model->get_game_name($game) -> game_name;
-		$subtitle = "Images du jeu";
+		$subtitle = "Oeuvres du jeu";
 		$game_link = str_replace(" ","_", $title);
 
 		$data = array
@@ -120,6 +120,7 @@ class Admin extends CI_Controller
 	{
 		// CI form validation
 		$this->form_validation->set_rules('image_name', 'Image Name', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
 
 		if ($this->form_validation->run() == FALSE)
 		{

@@ -28,9 +28,13 @@ class Game extends CI_Controller {
 	
 	public function clean_art()
 	{
+		$img_tab = $this->image_model->rand_image('Clean_Art');
+
 		$data = array
 		(
-			'rand_img'	=> $this->image_model->rand_image('Clean_Art')->img_file,
+			'work_of_art'	=> $img_tab[0] -> work_of_art,
+			'rand_img'		=> $img_tab[0] -> img_file,
+			'description'	=> $img_tab[0] -> description,
 		);
 
 		// Retrieving the name of player
@@ -50,9 +54,13 @@ class Game extends CI_Controller {
 		// Saving the score of clean_art game in session
 		$this->session->set_userdata('score', $score);
 
+		$img_tab = $this->image_model->rand_image('Puzzle_Art');
+
 		$data = array
 		(
-			'rand_img'		=> $this->image_model->rand_image('Puzzle_Art')->img_file,
+			'work_of_art'	=> $img_tab[0] -> work_of_art,
+			'rand_img'		=> $img_tab[0] -> img_file,
+			'description'	=> $img_tab[0] -> description,
 		);
 
 		$this->load->view('games/puzzle_art',$data);
@@ -70,14 +78,16 @@ class Game extends CI_Controller {
 
 		$data = array
 		(
-			'img_left_1' 	=> $img_tab[0]->img_file,
-			'img_right_1' 	=> $img_tab[0]->img_file_right,
-			'img_left_2' 	=> $img_tab[1]->img_file,
-			'img_right_2' 	=> $img_tab[1]->img_file_right,
-			'img_left_3' 	=> $img_tab[2]->img_file,
-			'img_right_3'	=> $img_tab[2]->img_file_right,
-			'img_left_4' 	=> $img_tab[3]->img_file,
-			'img_right_4' 	=> $img_tab[3]->img_file_right,
+			'work_of_art'	=> $img_tab[0] -> work_of_art,
+			'description'	=> $img_tab[0] -> description,
+			'img_left_1' 	=> $img_tab[0] -> img_file,
+			'img_right_1' 	=> $img_tab[0] -> img_file_right,
+			'img_left_2' 	=> $img_tab[1] -> img_file,
+			'img_right_2' 	=> $img_tab[1] -> img_file_right,
+			'img_left_3' 	=> $img_tab[2] -> img_file,
+			'img_right_3'	=> $img_tab[2] -> img_file_right,
+			'img_left_4' 	=> $img_tab[3] -> img_file,
+			'img_right_4' 	=> $img_tab[3] -> img_file_right,
 		);
 
 		$this->load->view('games/roulette_art',$data);
@@ -91,9 +101,13 @@ class Game extends CI_Controller {
 		// Saving the score of roulette_art game in session
 		$this->session->set_userdata('score', $this->session->userdata('score') + $score);
 
+		$img_tab = $this->image_model->rand_image('Emotion_Art');
+
 		$data = array
 		(
-			'rand_img'		=> $this->image_model->rand_image('Emotion_Art')->img_file,
+			'work_of_art'	=> $img_tab[0] -> work_of_art,
+			'rand_img'		=> $img_tab[0] -> img_file,
+			'description'	=> $img_tab[0] -> description,
 		);
 
 		$this->load->view('games/emotion_art',$data);
@@ -107,9 +121,14 @@ class Game extends CI_Controller {
 		// Saving the score of emotion_art game in session
 		$this->session->set_userdata('score', $this->session->userdata('score') + $score);
 
+
+		$img_tab = $this->image_model->rand_image('Color_Art');
+
 		$data = array
 		(
-			'rand_img' => $this->image_model->rand_image('Color_Art')->img_file,
+			'work_of_art'	=> $img_tab[0] -> work_of_art,
+			'rand_img'		=> $img_tab[0] -> img_file,
+			'description'	=> $img_tab[0] -> description,
 		);
 
 		$this->load->view('games/color_art',$data);
@@ -141,6 +160,24 @@ class Game extends CI_Controller {
 	public function logout()
 	{
 		$this->load->view('logout.php');
+	}
+
+	public function get_card($id)
+	{
+		$card_tab		= $this->game_model->get_card($id);
+
+		$title			= $card_tab -> work_of_art;
+		$img_file		= $card_tab -> img_file;
+		$description	= $card_tab -> description;
+
+		$data = array
+		(
+			'title'			=> $title,
+			'img_file'		=> $img_file,
+			'description'	=> $description,
+		);
+
+		$this->load->view('page/card', $data);
 	}
 	
 }

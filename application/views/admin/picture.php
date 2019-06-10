@@ -18,7 +18,7 @@
 
 	</section> <br />
 
-	<h2 class = "text-center"> Ajouter une image </h2> <br />
+	<h2 class = "text-center"> Ajouter une oeuvre </h2> <br />
 
 	<!-- success message to display after uploading image -->
 	<?php if ($this->session->flashdata('success')) { ?>
@@ -72,9 +72,15 @@
 			<?php } ?>
 
 		</div>
+	</div>
+	<div class="row">
+		<div class="col img-game-form">
+			<label>Contenu</label>
+			<textarea class="form-control" id="description" name="description" rows="8"></textarea>
+		</div>
 
 		<div class = "col submit-game-form">
-			<input type="submit" class="btn btn-primary" value="Ajouter l'image">
+			<input type="submit" class="btn btn-primary" value="Ajouter l'oeuvre">
 		</div>
 
 	</div>
