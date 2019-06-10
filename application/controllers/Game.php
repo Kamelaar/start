@@ -33,6 +33,7 @@ class Game extends CI_Controller {
 			'rand_img'	=> $this->image_model->rand_image('Clean_Art')->img_file,
 		);
 
+
 		// Retrieving the name of player
 		$player_name = $this->input->post('player_name');
 
@@ -139,6 +140,7 @@ class Game extends CI_Controller {
 	}
 	public function card_clean_art()
 	{
+		echo $imgSend;
 		$this->load->view('pages/clean_art_card');
 	}
 

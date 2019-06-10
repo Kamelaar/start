@@ -29,6 +29,9 @@
     .placeButton{
         margin-top: 175px;
     }
+    .swal-wide{
+    width:850px;
+}
     </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url('assets/img/' . $rand_img) ?>" />
@@ -43,12 +46,8 @@
       </svg>
     </div>
 
-    <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="img01">
-      <div id="caption"></div>
-    </div>
 
+    <?php $titre = substr($rand_img, 0, -5); ?>
 
     <script src='http://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
     <script src='<?php echo base_url() ?>assets/js/cleanArt/jquery.eraser.js' type='text/javascript'></script>
@@ -74,6 +73,7 @@
                 background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
   					showConfirmButton : true,
             confirmButtonClass : 'placeButton',
+            confirmButtonColor: '#e95549',
             animation: false,
             customClass: {
                 popup: 'animated tada'
@@ -87,8 +87,23 @@
 					data:{time:time},
 					success: function(repons) {
 						// METTRE LA FICHER ARTISTE ICI //
+          Swal.fire({
+            html:
+              '<h2><?php echo $titre ?></h2></br>' +
+              '<img id="imgPopup" src="<?php echo base_url('assets/img/' . $rand_img) ?>" /> ' + 
+              '<p>Etiam nec dui ante. Nam viverra ligula quis massa rutrum, ac elementum tortor bibendum. Curabitur feugiat tincidunt tortor nec consequat. Donec et libero ac urna pellentesque dapibus. In nec pulvinar mi. Aenean a ipsum a eros bibendum tempus vitae sit amet libero. Ut pharetra ut eros id efficitur. Nulla id mauris vitae neque faucibus posuere eget eu </p>',
+            confirmButtonText:'Jeu suivant !', 
+            animation: false, 
+            confirmButtonColor : '#e95549', 
+            customClass: {
+                popup: 'animated slideInLeft swal-wide'
+
+              },function() {
+            window.location = "puzzle_art";
+                });
+            }, 1000);
 						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-						document.location.href="puzzle_art";
+					
 					},
                  error: function() {
                     alert("Invalide!");
@@ -146,7 +161,9 @@
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/cleanArt/popup-regle.png)',
             showConfirmButton : true,
-            confirmButtonClass : 'placeButton'
+            confirmButtonClass : 'placeButton',
+            confirmButtonColor : '#e95549', 
+
              })
       })
     </script>
