@@ -30,8 +30,9 @@
         margin-top: 175px;
     }
     .swal-wide{
-    width:850px;
-}
+    width:950px;
+    height: 650px;
+    }
     </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url('assets/img/' . $rand_img) ?>" />
@@ -47,7 +48,8 @@
     </div>
 
 
-    <?php $titre = substr($rand_img, 0, -5); ?>
+    <?php $titre = substr($rand_img, 0, -5); 
+    $descritptionFormat = addslashes($description); ?>
 
     <script src='http://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
     <script src='<?php echo base_url() ?>assets/js/cleanArt/jquery.eraser.js' type='text/javascript'></script>
@@ -67,7 +69,7 @@
             $('#progress').html(Math.round(p*100)+'%');
             if (progress == '0.6875'){
 
-				let time = countdownNumberEl.textContent;
+				  let time = countdownNumberEl.textContent;
 
             swal.fire({
                 background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
@@ -86,35 +88,34 @@
 					type:'POST',
 					data:{time:time},
 					success: function(repons) {
-						// METTRE LA FICHER ARTISTE ICI //
+					
+          	// METTRE LA FICHER ARTISTE ICI //
           Swal.fire({
             html:
               '<h2><?php echo $titre ?></h2></br>' +
               '<img id="imgPopup" src="<?php echo base_url('assets/img/' . $rand_img) ?>" /> ' + 
-              '<p>Etiam nec dui ante. Nam viverra ligula quis massa rutrum, ac elementum tortor bibendum. Curabitur feugiat tincidunt tortor nec consequat. Donec et libero ac urna pellentesque dapibus. In nec pulvinar mi. Aenean a ipsum a eros bibendum tempus vitae sit amet libero. Ut pharetra ut eros id efficitur. Nulla id mauris vitae neque faucibus posuere eget eu </p>',
+              '<p><?php echo $descritptionFormat ?></p>',
             confirmButtonText:'Jeu suivant !', 
-            animation: false, 
             confirmButtonColor : '#e95549', 
+            animation: false, 
             customClass: {
                 popup: 'animated slideInLeft swal-wide'
-
-              },function() {
-            window.location = "puzzle_art";
-                });
-            }, 1000);
-						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-					
-					},
-                 error: function() {
-                    alert("Invalide!");
-                  }
-
-                })
-				;
-            })
-          }
-        }
-      });
+              }
+              })
+              .then(function (repons) {
+                   window.location = "puzzle_art";
+                 })
+           },
+           error: function() {
+                alert("Invalide!");
+            }
+						// PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART 
+            });
+		
+        });
+     }
+   }
+  });
         
         $('#resetBtn').click(function(event) {
           $('#redux').eraser('reset');
@@ -167,7 +168,6 @@
              })
       })
     </script>
-
   </body>
 
 </html>

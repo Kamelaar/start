@@ -11,3 +11,10 @@
 	top: 90%; left: 40%; /* à 50%/50% du parent référent */
 	transform: translate(-50%, -50%);
 }
+#diplome{
+	width: 350px;
+	height: 250px;
+	position: absolute; /* postulat de départ */
+	top: 70%; left: 60%; /* à 50%/50% du parent référent */
+	transform: translate(-50%, -50%);
+}

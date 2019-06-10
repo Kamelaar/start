@@ -84,22 +84,22 @@
             <div class="fancy">
                 <ul class="slot">
                     <!-- In reverse order so the 7s show on load -->
-					 <li><span>4</span></li>
-                    <li><span>3</span></li>
-                    <li><span>2</span></li>
-                    <li><span>1</span></li>
+					<li class="hardware"><span> </span></li>
+                    <li class="hardware"><span> </span></li>
+                    <li class="hardware"><span> </span></li>
+                    <li class="hardware"><span> </span></li>
                 </ul>
-                <input type="button" class="btn-2j btn-2 btn" id="playFancy" value="JOUER!">
+                <input type="button" class="btn-2j btn-2 btn" id="playFancy"  value="JOUER!">
             </div>
             <div class="fancy2">
                 <ul class="slot2">
                     <!-- In reverse order so the 7s show on load -->
-					<li><span>4</span></li>
-					<li><span>3</span></li>
-                    <li><span>2</span></li>
-                    <li><span>1</span></li>
+					<li class="hardware2"><span> </span></li>
+					<li class="hardware2"><span> </span></li>
+                    <li class="hardware2"><span> </span></li>
+                    <li class="hardware2"><span> </span></li>
                 </ul>
-                <input type="button" class="btn-2j btn-2 btn" id="playFancy2" value="JOUER!">
+                <input type="button" class="btn-2j btn-2 btn" id="playFancy2"  value="JOUER!">
             </div>
         </div>
     </div>
@@ -116,6 +116,9 @@
     <script src="<?php echo base_url() ?>assets/js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?php echo base_url() ?>assets/js/jquery.jSlots.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
+        
+$(document).ready(function(){
+        var stringUrl, stringUrl2;
         // normal example
         $('.normal .slot').jSlots({
             spinner : '#playNormal',
@@ -130,10 +133,21 @@
             time : 1000,
             loops : 1,
             onStart : function() {
+
                 $('.slot').removeClass('winner');
             },
             onWin : function(winCount, winners, finalNumbers) {
-            }
+
+            },  
+            onEnd : function(winCount, winners, finalNumbers) {
+           
+            var selector = $('.fancy .slot li:nth-child(' +winCount[0])
+            stringUrl = selector.css('background-image'); //<==============
+            stringUrl = stringUrl.replace('url(','').replace(')','');
+            stringUrl = stringUrl.substr(41);  
+
+
+        }
         });
 
         // normal example
@@ -153,18 +167,39 @@
                 $('.slot2').removeClass('winner');
             },
             onWin : function(winCount, winners, finalNumbers) {
+
+            },
+            onEnd : function(winCount, winners, finalNumbers) { 
+            var selector = $('.fancy2 .slot2 li:nth-child(' +winCount[0])
+            stringUrl2 = selector.css('background-image'); //<==============
+            stringUrl2 = stringUrl2.replace('url(','').replace(')','');
+            stringUrl2 = stringUrl2.substr(41);
+            
             }
         });
 
         $('#btnConfirm').click(function(){
+
+           //var toto = $( ".hardware:visible" ).css('background-image');
+           //var toto2 = $( ".hardware2:visible" ).css('background-image');
+            //var toto = $('.fancy2 .slot2 li:nth-child(2)').css('background-image');
+            //var toto2 = $('.fancy .slot li:nth-child(2)').css('background-image');
+            //var toto = toto.substr(45);
+            //var toto2 = toto2.substr(45);
+            console.log(stringUrl);
+            console.log(stringUrl2);
+            if(stringUrl == stringUrl2){
+
             Swal.fire({
             background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-bravo.png)',
             showConfirmButton : true,
             confirmButtonClass : 'placeButton',
+            confirmButtonColor: '#253654',
               animation: false,
                 customClass: {
                     popup: 'animated tada'
                 }
+
             }).then((result) => {
               if (result.value) {
                var time = countdownNumberEl.textContent;
@@ -175,7 +210,7 @@
                          success: function(repons) {
                                 // METTRE LA FICHER ARTISTE ICI //
                                 // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                                document.location.href="emotion_art";
+                                //document.location.href="emotion_art";
                                    },
                          error: function() {
                             alert("Invalide!");
@@ -183,6 +218,20 @@
                         });
                       }
                     })
+                    }
+                else{
+                    Swal.fire({
+                        background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-oups.png)',
+                        showConfirmButton : true,
+                        confirmButtonClass : 'placeButton',
+                        confirmButtonColor: '#edc622',
+                          animation: false,
+                            customClass: {
+                                popup: 'animated tada borderstyle'
+                            }
+
+                        })
+                }
                 });
 
 
@@ -193,6 +242,7 @@
           countdown = --countdown <= 0 ? 10: countdown;
           countdownNumberEl.textContent = countdown;
         }, 1000);
+});
       
     </script>
     <script>
@@ -200,9 +250,23 @@
             swal.fire({
             background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-regle.png)',
             showConfirmButton : true,
-            confirmButtonClass : 'placeButton'
+            confirmButtonClass : 'placeButton',
+            confirmButtonColor: '#253654'
             })
       })
+    </script>
+    <script>
+        function calcNumGauche() {
+            var toto = $( ".hardware:visible" ).css('background-image');
+            console.log(toto);
+            return toto;
+        }
+
+        function calcNumDroite() {
+             var toto2 = $( ".hardware2:visible" ).css('background-image');
+             console.log(toto2)
+             return toto2;
+        }
     </script>
 </body>
 </html>

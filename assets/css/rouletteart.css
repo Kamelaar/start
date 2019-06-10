@@ -48,19 +48,6 @@ border-left: 1px solid #999;
 .fancy .slot:first-child li {
 border-left: none;
 }
-.fancy .slot li:nth-child(3) {
-background: center url("../img/rouletteArt/imgLeft/AG.png");
-background-size: cover;
-}
-.fancy .slot li:nth-child(2) {
-background: center url("../img/rouletteArt/imgLeft/BG.png");
-background-size: cover;
-}
-.fancy .slot li:nth-child(1),
-.fancy .slot li:nth-child(8) {
-background: center url("../img/rouletteArt/imgLeft/CG.png");
-background-size: cover;
-}
 .fancy .slot li span {
 display: block;
 }
@@ -95,18 +82,7 @@ border-left: 1px solid #999;
 .fancy2 .slot2:first-child li {
 border-left: none;
 }
-.fancy2 .slot2 li:nth-child(3) {
-background: center url("../img/rouletteArt/imgRight/CD.png");
-background-size: cover;
-}
-.fancy2 .slot2 li:nth-child(2) {
-background: center url("../img/rouletteArt/imgRight/BD.png");
-background-size: cover;
-}
-.fancy2 .slot2 li:nth-child(1),
-.fancy2 .slot2 li:nth-child(8) {
-background: center url("../img/rouletteArt/imgRight/AD.png");
-background-size: cover;
+ground-size: cover;
 }
 .fancy2 .slot2 li span {
 display: block;
@@ -227,7 +203,7 @@ transform: translate(-50%, -50%);
 
 #btnConfirm{
 position: absolute; /* postulat de départ */
-top: 90%; left: 50%; /* à 50%/50% du parent référent */
+top: 90%; left: 47%; /* à 50%/50% du parent référent */
 transform: translate(-50%, -50%);     
 }
 label {

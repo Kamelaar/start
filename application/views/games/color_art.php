@@ -30,7 +30,7 @@
         margin-top: 150px;
   }
 	</style>
-  <input type=hidden id=lien value=<?php echo $lienImage; ?>  
+  <input type=hidden id=lien value=<?php echo $lienImage; ?>  />
 	<section id="examples" class="examples-section">
 	    <div class="container">	
 	      <div id="example-images"></div>

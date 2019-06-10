@@ -161,3 +161,8 @@ to {
 .swal2-popup {
   height: 600px !important;
 }
+#imgPopup{
+  width: 300px;
+  height: 340px;
+  float : left;
+}

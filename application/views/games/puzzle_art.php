@@ -33,6 +33,10 @@
     .placeButton{
         margin-top: 150px;
     }
+    .swal-wide{
+    width:950px;
+    height: 650px;
+}
     </style>
     <div id="puzzle-containment" style="margin-left:2%;margin-right:2%;margin-top: 50vh;transform: translateY(-50%); /margin:30px 0;padding:10px;text-align:center;background-color: none">
         <div class="pure-g" style="max-width:1280px;margin:auto">
@@ -55,6 +59,10 @@
     </div>
 
     <div id="fb-root"></div>
+
+    <?php $titre = substr($rand_img, 0, -5); 
+    $descritptionFormat = addslashes($description); ?>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
@@ -91,10 +99,24 @@
                         type:'POST',
                         data:{time:time},
                          success: function(repons) {
-                                // METTRE LA FICHER ARTISTE ICI //
-                                // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                                document.location.href="roulette_art";
-                                   },
+                    
+            // METTRE LA FICHER ARTISTE ICI //
+                            Swal.fire({
+                             html:
+                                 '<h2><?php echo $titre ?></h2></br>' +
+                                  '<img id="imgPopup" src="<?php echo base_url('assets/img/' . $rand_img) ?>" /> ' + 
+                                 '<p><?php echo $descritptionFormat ?></p>',
+                             confirmButtonText:'Jeu suivant !', 
+                            confirmButtonColor : '#abe2cb', 
+                            animation: false, 
+                            customClass: {
+                                 popup: 'animated slideInLeft swal-wide'
+                            }
+                        })
+                            .then(function (repons) {
+                                    window.location = "roulette_art";
+                            })
+                        },
                          error: function() {
                             alert("Invalide!");
                           }

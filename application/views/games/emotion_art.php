@@ -25,6 +25,10 @@
     .placeButton{
         margin-top: 150px;
     }
+    .swal-wide{
+    width:950px;
+    height: 650px;
+}
     </style>
     <img id="imgEmotion" src="<?php echo base_url('assets/img/' . $rand_img) ?>">
     <div id="container">
@@ -46,6 +50,9 @@
       </svg>
     </div>
 
+    <?php $titre = substr($rand_img, 0, -5); 
+    $descritptionFormat = addslashes($description); ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -66,52 +73,7 @@
           countdownNumberEl.textContent = countdown;
         }, 1000);
 
-        // LE GRAPHIQUE
-Highcharts.chart('block', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Emoticone/nombre de personnes'
-    },
-    xAxis: {
-        categories: [
-          'Triste',
-          'Choqué',
-          'love',
-          'content',
-          'furieux'
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Nombre de personnes :'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Tokyo',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0]
-
-    }]
-});
         $("li").click(function(){
-            $("#imgEmotion").animate({left: '250px'});
             $("#block").toggle('slow');
             setTimeout(
               function() 
@@ -132,10 +94,22 @@ Highcharts.chart('block', {
                 type:'POST',
                 data:{time:time},
                  success: function(repons) {
-                        // METTRE LA FICHER ARTISTE ICI //
-                        // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                        document.location.href="color_art";
-                           },
+                            Swal.fire({
+                             html:
+                                 '<h2><?php echo $titre ?></h2></br>' +
+                                  '<img id="imgPopup" src="<?php echo base_url('assets/img/' . $rand_img) ?>" /> ' + 
+                                 '<p><?php echo $descritptionFormat ?></p>',
+                             confirmButtonText:'Jeu suivant !', 
+                            confirmButtonColor : '#e95549', 
+                            animation: false, 
+                            customClass: {
+                                 popup: 'animated slideInLeft swal-wide'
+                            }
+                        })
+                            .then(function (repons) {
+                                    window.location = "color_art";
+                            })
+                        },
                  error: function() {
                     alert("Invalide!");
                   }
