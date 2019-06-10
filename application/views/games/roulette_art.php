@@ -212,7 +212,7 @@ $(document).ready(function(){
                          success: function(repons) {
                                 // METTRE LA FICHER ARTISTE ICI //
                                 // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                                //document.location.href="emotion_art";
+                                document.location.href="emotion_art";
                                    },
                          error: function() {
                             alert("Invalide!");
