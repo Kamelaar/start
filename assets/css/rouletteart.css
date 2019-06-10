@@ -227,7 +227,7 @@ transform: translate(-50%, -50%);
 
 #btnConfirm{
 position: absolute; /* postulat de départ */
-top: 90%; left: 45%; /* à 50%/50% du parent référent */
+top: 90%; left: 50%; /* à 50%/50% du parent référent */
 transform: translate(-50%, -50%);     
 }
 label {

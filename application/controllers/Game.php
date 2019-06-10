@@ -156,6 +156,10 @@ class Game extends CI_Controller {
 
 		$this->load->view('games/score_final',$data);
 	}
+	public function card_clean_art()
+	{
+		$this->load->view('pages/clean_art_card');
+	}
 
 	public function logout()
 	{
