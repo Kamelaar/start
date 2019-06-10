@@ -58,6 +58,7 @@ class Admin_model extends CI_Model{
 				'img_file_right'	=> $right_image,
 				'game_link'			=> $this->input->post('game_link'),
 				'game_name'			=> $this->input->post('game_name'),
+				'description'		=> $this->input->post('description'),
 			);
 		}
 		else
@@ -69,6 +70,7 @@ class Admin_model extends CI_Model{
 				'img_file'		=> $image,
 				'game_link'		=> $this->input->post('game_link'),
 				'game_name'		=> $this->input->post('game_name'),
+				'description'	=> $this->input->post('description'),
 			);
 		}
 

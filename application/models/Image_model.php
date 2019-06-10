@@ -35,7 +35,7 @@ class Image_model extends CI_Model {
 	{
 		if ($game == "Roulette_Art")
 		{
-			$this->db->select('img_file, img_file_right');
+			$this->db->select('work_of_art, img_file, img_file_right, description');
 			$this->db->where('game_link', $game);
 			$this->db->limit(4);
 			$this->db->order_by('rand()');
@@ -45,15 +45,13 @@ class Image_model extends CI_Model {
 		}
 		else
 		{
-			$this->db->select('img_file');
+			$this->db->select('work_of_art, img_file, description');
 			$this->db->where('game_link', $game);
 			$this->db->order_by('rand()');
 			$query = $this->db->get('game_image');
 
-			return $query->row();
+			return $query->result();
 		}
-
-
 
 	}
 }
