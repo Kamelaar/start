@@ -180,6 +180,8 @@ $(document).ready(function(){
 
         $('#btnConfirm').click(function(){
 
+			$("#countdown").hide();
+
            //var toto = $( ".hardware:visible" ).css('background-image');
            //var toto2 = $( ".hardware2:visible" ).css('background-image');
             //var toto = $('.fancy2 .slot2 li:nth-child(2)').css('background-image');

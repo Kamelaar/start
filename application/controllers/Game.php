@@ -109,6 +109,7 @@ class Game extends CI_Controller {
 			'work_of_art'	=> $img_tab[0] -> work_of_art,
 			'rand_img'		=> $img_tab[0] -> img_file,
 			'description'	=> $img_tab[0] -> description,
+			'emotion'		=> $img_tab[0] -> emotion,
 		);
 
 		$this->load->view('games/emotion_art',$data);

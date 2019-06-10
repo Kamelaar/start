@@ -71,6 +71,8 @@
 
 				  let time = countdownNumberEl.textContent;
 
+				$("#countdown").hide();
+
             swal.fire({
                 background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
   					showConfirmButton : true,
@@ -82,6 +84,7 @@
               }
   					})
             .then(function() {
+
 				//request ajax
 				$.ajax({
 					url:"<?php echo site_url('game/puzzle_art')?>",
