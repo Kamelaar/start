@@ -140,7 +140,11 @@
         });
 
         $('#winner').click(function(){
-          var time = countdownNumberEl.textContent;
+
+			$("#countdown").hide();
+
+
+			var time = countdownNumberEl.textContent;
           var points = 25;
           $.ajax({      
                 url:"<?php echo site_url('Game/color_art')?>",

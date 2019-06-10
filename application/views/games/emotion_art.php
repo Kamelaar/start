@@ -37,6 +37,8 @@
     	</ul>
     </div>
 
+	<?= $emotion ?>
+
     <div id="block" style="min-width: 310px; height: 350px; max-width: 400px; margin: 0 auto"></div>
 
     <div id="countdown">
@@ -116,7 +118,9 @@ Highcharts.chart('block', {
             setTimeout(
               function() 
               {
-                swal.fire({
+				  $("#countdown").hide();
+
+				  swal.fire({
                 background: 'no-repeat center url(/start/assets/img/emotionArt/popup-bravo.png)',
                 showConfirmButton : true,
                 confirmButtonClass : 'placeButton',
@@ -142,7 +146,7 @@ Highcharts.chart('block', {
                 });
             });
         
-              }, 3000);
+              }, 0);
         });  
         });
     </script>

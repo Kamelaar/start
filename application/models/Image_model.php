@@ -43,6 +43,16 @@ class Image_model extends CI_Model {
 
 			return $query->result();
 		}
+		else if ($game == "Emotion_Art")
+		{
+			$this->db->select('work_of_art, img_file, img_file_right, description, emotion');
+			$this->db->where('game_link', $game);
+			$this->db->limit(4);
+			$this->db->order_by('rand()');
+			$query = $this->db->get('game_image');
+
+			return $query->result();
+		}
 		else
 		{
 			$this->db->select('work_of_art, img_file, description');

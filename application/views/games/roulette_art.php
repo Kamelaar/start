@@ -157,7 +157,11 @@
         });
 
         $('#btnConfirm').click(function(){
-            Swal.fire({
+
+			$("#countdown").hide();
+
+
+			Swal.fire({
             background: 'no-repeat center url(/start/assets/img/rouletteArt/popup-bravo.png)',
             showConfirmButton : true,
             confirmButtonClass : 'placeButton',

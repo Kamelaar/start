@@ -74,6 +74,8 @@
                 pile: '#pile',
                 containment: '#puzzle-containment',
                 onComplete: function(){
+					$("#countdown").hide();
+
                     swal.fire({
                     background: 'no-repeat center url(/start/assets/img/puzzleArt/popup-bravo.png)',
                     showConfirmButton : true,
