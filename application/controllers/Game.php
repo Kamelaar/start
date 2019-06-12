@@ -35,6 +35,12 @@ class Game extends CI_Controller {
 			'work_of_art'	=> $img_tab[0] -> work_of_art,
 			'rand_img'		=> $img_tab[0] -> img_file,
 			'description'	=> $img_tab[0] -> description,
+			'artist'		=> $img_tab[0] -> artist,
+			'dimensions'	=> $img_tab[0] -> dimensions,
+			'expo_place'	=> $img_tab[0] -> expo_place,
+			'art_type'		=> $img_tab[0] -> art_type,
+			'period'		=> $img_tab[0] -> period,
+			'creation_date'	=> $img_tab[0] -> creation_date,
 		);
 
 
@@ -62,6 +68,12 @@ class Game extends CI_Controller {
 			'work_of_art'	=> $img_tab[0] -> work_of_art,
 			'rand_img'		=> $img_tab[0] -> img_file,
 			'description'	=> $img_tab[0] -> description,
+			'artist'		=> $img_tab[0] -> artist,
+			'dimensions'	=> $img_tab[0] -> dimensions,
+			'expo_place'	=> $img_tab[0] -> expo_place,
+			'art_type'		=> $img_tab[0] -> art_type,
+			'period'		=> $img_tab[0] -> period,
+			'creation_date'	=> $img_tab[0] -> creation_date,
 		);
 
 		$this->load->view('games/puzzle_art',$data);
@@ -89,6 +101,12 @@ class Game extends CI_Controller {
 			'img_right_3'	=> $img_tab[2] -> img_file_right,
 			'img_left_4' 	=> $img_tab[3] -> img_file,
 			'img_right_4' 	=> $img_tab[3] -> img_file_right,
+			'artist'		=> $img_tab[0] -> artist,
+			'dimensions'	=> $img_tab[0] -> dimensions,
+			'expo_place'	=> $img_tab[0] -> expo_place,
+			'art_type'		=> $img_tab[0] -> art_type,
+			'period'		=> $img_tab[0] -> period,
+			'creation_date'	=> $img_tab[0] -> creation_date,
 		);
 
 		$this->load->view('games/roulette_art',$data);
@@ -110,6 +128,12 @@ class Game extends CI_Controller {
 			'rand_img'		=> $img_tab[0] -> img_file,
 			'description'	=> $img_tab[0] -> description,
 			'emotion'		=> $img_tab[0] -> emotion,
+			'artist'		=> $img_tab[0] -> artist,
+			'dimensions'	=> $img_tab[0] -> dimensions,
+			'expo_place'	=> $img_tab[0] -> expo_place,
+			'art_type'		=> $img_tab[0] -> art_type,
+			'period'		=> $img_tab[0] -> period,
+			'creation_date'	=> $img_tab[0] -> creation_date,
 		);
 
 		$this->load->view('games/emotion_art',$data);
@@ -131,6 +155,12 @@ class Game extends CI_Controller {
 			'work_of_art'	=> $img_tab[0] -> work_of_art,
 			'rand_img'		=> $img_tab[0] -> img_file,
 			'description'	=> $img_tab[0] -> description,
+			'artist'		=> $img_tab[0] -> artist,
+			'dimensions'	=> $img_tab[0] -> dimensions,
+			'expo_place'	=> $img_tab[0] -> expo_place,
+			'art_type'		=> $img_tab[0] -> art_type,
+			'period'		=> $img_tab[0] -> period,
+			'creation_date'	=> $img_tab[0] -> creation_date,
 		);
 
 		$this->load->view('games/color_art',$data);
@@ -157,11 +187,6 @@ class Game extends CI_Controller {
 		);
 
 		$this->load->view('games/score_final',$data);
-	}
-	public function card_clean_art()
-	{
-		echo $imgSend;
-		$this->load->view('pages/clean_art_card');
 	}
 
 	public function logout()

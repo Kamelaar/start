@@ -118,7 +118,7 @@
     <script type="text/javascript" charset="utf-8">
         
 $(document).ready(function(){
-        var stringUrl, stringUrl2;
+        var stringUrl = "image1", stringUrl2 = "image2";
         // normal example
         $('.normal .slot').jSlots({
             spinner : '#playNormal',
