@@ -24,6 +24,7 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png");
     background-size: cover;
+    overflow-y:hidden;
     }
     .swal2-popup {
     height: 600px !important;
@@ -104,7 +105,7 @@
         </div>
     </div>
     <div id="countdown">
-    <div style="font-size: 25px;" id="countdown-number"></div>
+    <div style="font-size: 20px;background-color:white;border-radius:20px;width:40px" id="countdown-number"></div>
       <svg>
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
@@ -118,7 +119,7 @@
     <script type="text/javascript" charset="utf-8">
         
 $(document).ready(function(){
-        var stringUrl, stringUrl2;
+        var stringUrl = "image1", stringUrl2 = "image2";
         // normal example
         $('.normal .slot').jSlots({
             spinner : '#playNormal',
@@ -144,7 +145,7 @@ $(document).ready(function(){
             var selector = $('.fancy .slot li:nth-child(' +winCount[0])
             stringUrl = selector.css('background-image'); //<==============
             stringUrl = stringUrl.replace('url(','').replace(')','');
-            stringUrl = stringUrl.substr(41);  
+            stringUrl = stringUrl.substr(60);  
 
 
         }
@@ -173,23 +174,14 @@ $(document).ready(function(){
             var selector = $('.fancy2 .slot2 li:nth-child(' +winCount[0])
             stringUrl2 = selector.css('background-image'); //<==============
             stringUrl2 = stringUrl2.replace('url(','').replace(')','');
-            stringUrl2 = stringUrl2.substr(41);
+            stringUrl2 = stringUrl2.substr(60);
             
             }
         });
 
         $('#btnConfirm').click(function(){
-
 			$("#countdown").hide();
-
-           //var toto = $( ".hardware:visible" ).css('background-image');
-           //var toto2 = $( ".hardware2:visible" ).css('background-image');
-            //var toto = $('.fancy2 .slot2 li:nth-child(2)').css('background-image');
-            //var toto2 = $('.fancy .slot li:nth-child(2)').css('background-image');
-            //var toto = toto.substr(45);
-            //var toto2 = toto2.substr(45);
-            console.log(stringUrl);
-            console.log(stringUrl2);
+			
             if(stringUrl == stringUrl2){
 
             Swal.fire({
@@ -210,10 +202,22 @@ $(document).ready(function(){
                         type:'POST',
                         data:{time:time},
                          success: function(repons) {
-                                // METTRE LA FICHER ARTISTE ICI //
-                                // PUIS REDIRIGER UTILISATEUR VERS PUZZLE-ART //
-                                document.location.href="emotion_art";
-                                   },
+                            Swal.fire({
+                             html:
+                                 '<h2>Qu\'est ce que le cubisme ?</h2></br>' +
+                                 '<img id="imgPopup" src=""https://commons.wikimedia.org/wiki/File:Juan_Gris,_1915,_Nature_morte_%C3%A0_la_nappe_%C3%A0_carreaux_(Still_Life_with_Checked_Tablecloth),_oil_on_canvas,_116.5_x_89.3_cm.jpg?uselang=fr /> ' + 
+                                 '<p>Le cubisme est un mouvement artistique du début du XXe siècle, qui constitue une révolution dans la peinture et la sculpture, et influence également l\'architecture, la littérature et la musique. Produites essentiellement dans la région parisienne, les œuvres cubistes représentent des objets analysés, décomposés et réassemblés en une composition abstraite, comme si l\'artiste multipliait les différents points de vue. Elles partagent également une récurrence des formes géométriques et du thème de la modernité </p>',
+                             confirmButtonText:'Jeu suivant !', 
+                            confirmButtonColor : '#e95549', 
+                            animation: false, 
+                            customClass: {
+                                 popup: 'animated slideInLeft swal-wide'
+                            }
+                        })
+                            .then(function (repons) {
+                                    window.location = "emotion_art";
+                            })
+                        },
                          error: function() {
                             alert("Invalide!");
                           }
@@ -270,5 +274,15 @@ $(document).ready(function(){
              return toto2;
         }
     </script>
+    <script>
+    $(document).ready(function(){
+			$("#playFancy2").click();
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+			$("#playFancy").click();
+		});
+	</script>
 </body>
 </html>

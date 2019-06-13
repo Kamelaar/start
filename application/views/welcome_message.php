@@ -52,12 +52,11 @@
 </audio>
 
 <!--The game logo-->
-<div class = "start_logo">
+<div class = "animated pulse infinite start_logo" data-toggle="modal" data-target="#exampleModal">
+</div>
+    
 	<!-- Button trigger modal -->
 
-	<a class="nav-link button-start-position flashit"  data-toggle="modal" data-target="#exampleModal">
-		<i class="far fa-hand-pointer fa-2x"></i>
-	</a>
 
 
 

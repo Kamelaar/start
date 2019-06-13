@@ -12,8 +12,8 @@
 
      <title>[START] | CleanArt</title>
 
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/cleanart.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.css" />
+<link rel="stylesheet" href="<?php echo base_url('assets/css/cleanArt.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css') ?>" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
   </head>
 
@@ -22,6 +22,7 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/CLEAN-ART-START.png");
     background-size: cover;
+    overflow-y:hidden;
     }
     .swal2-popup {
       height: 600px !important;
@@ -33,27 +34,32 @@
     width:950px;
     height: 650px;
     }
+    #paragraphe{
+      padding-left: 30px;
+      padding-right: 20px;
+    }
     </style>
     <span class="container center-block">
       <img id="robot" src="<?php echo base_url('assets/img/' . $rand_img) ?>" />
-      <img id="redux" src="<?php echo base_url() ?>assets/img/cleanArt/dust.png" />
+      <img id="redux" src="<?php echo base_url('assets/img/Dust.png') ?>" />
       <div id="progress">0%</div>
     </span>
 
     <div id="countdown">
-    <div style="font-size: 25px;" id="countdown-number"></div>
+    <div style="font-size: 20px;background-color:white;border-radius:20px;width:40px" id="countdown-number"></div>
       <svg>
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
     </div>
 
 
-    <?php $titre = substr($rand_img, 0, -5); 
-    $descritptionFormat = addslashes($description); ?>
+    <?php $titre = substr($rand_img, 0, -4); 
+    $descritptionFormat = utf8_decode($description); 
+    $toto = str_replace('é', 'Ã©', $descritptionFormat) ?>
 
     <script src='http://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript'></script>
-    <script src='<?php echo base_url() ?>assets/js/cleanArt/jquery.eraser.js' type='text/javascript'></script>
-	  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="<?php echo base_url('assets/js/jquery.eraser.js') ?>" type='text/javascript'></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type = "text/javascript">
 
       $(function(){
@@ -74,7 +80,7 @@
 				$("#countdown").hide();
 
             swal.fire({
-                background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
+            background: 'no-repeat center url(/start/assets/img/cleanArt/popup-bravo.png)',
   					showConfirmButton : true,
             confirmButtonClass : 'placeButton',
             confirmButtonColor: '#e95549',
@@ -95,9 +101,9 @@
           	// METTRE LA FICHER ARTISTE ICI //
           Swal.fire({
             html:
-              '<h2><?php echo $titre ?></h2></br>' +
+              '<h2><?php echo $work_of_art ?></h2></br>' +
               '<img id="imgPopup" src="<?php echo base_url('assets/img/' . $rand_img) ?>" /> ' + 
-              '<p><?php echo $descritptionFormat ?></p>',
+              '<p id="paragraphe"><?php echo $toto ?></p>',
             confirmButtonText:'Jeu suivant !', 
             confirmButtonColor : '#e95549', 
             animation: false, 
