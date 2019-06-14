@@ -29,6 +29,7 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/PUZZLE-ART-START.png");
     background-size: cover;
+    overflow-y:hidden;
     }
     .placeButton{
         margin-top: 150px;
@@ -52,7 +53,7 @@
     </div>
 
     <div id="countdown">
-    <div style="font-size: 25px;" id="countdown-number"></div>
+    <div style="font-size: 20px;background-color:white;border-radius:20px;width:40px" id="countdown-number"></div>
       <svg>
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
@@ -61,7 +62,7 @@
     <div id="fb-root"></div>
 
     <?php $titre = substr($rand_img, 0, -5); 
-    $descritptionFormat = addslashes($description); ?>
+    $descritptionFormat = utf8_decode($description); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -104,11 +105,11 @@
                     
             // METTRE LA FICHER ARTISTE ICI //
                             Swal.fire({
-                             html:
-                                 '<h2><?php echo $titre ?></h2></br>' +
+                            html:
+                                 '<h2><?php echo $work_of_art ?></h2></br>' +
                                   '<img id="imgPopup" src="<?php echo base_url('assets/img/' . $rand_img) ?>" /> ' + 
                                  '<p><?php echo $descritptionFormat ?></p>',
-                             confirmButtonText:'Jeu suivant !', 
+                            confirmButtonText:'Jeu suivant !', 
                             confirmButtonColor : '#abe2cb', 
                             animation: false, 
                             customClass: {

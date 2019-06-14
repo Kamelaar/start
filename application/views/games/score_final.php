@@ -21,7 +21,7 @@
 <body>
 <style>
 body{
-	background: url("<?php echo base_url() ?>assets/img/background/pages-score.png");
+	background: url("<?php echo base_url() ?>assets/img/background/Pages-Score.png");
 	background-size: cover;
 	overflow-y:hidden;
 }
@@ -64,6 +64,6 @@ body{
 
 <h1 id="score"><?php echo $score ?></h1>
 <img class="animated flip delay-1s" id="diplome" src="<?php echo $diplome ?>" />
-<a href="<?php echo base_url() ?>Game/logout"><img id="home" src="<?php echo base_url() ?>assets/img/score/boutons-home-score.png"></a>
+<a href="<?php echo base_url() ?>Game/logout"><img id="home" src="<?php echo base_url() ?>assets/img/score/Boutons-home-score.png"></a>
 </body>
 </html>

@@ -21,7 +21,8 @@
 	<style>
 	body{
 	background: url("<?php echo base_url() ?>assets/img/background/PALETTTE-COULEUR-START.png");
-  background-size: cover;
+    background-size: cover;
+    overflow-y:hidden;
 	}
   .swal2-popup {
       height: 600px !important;
@@ -38,19 +39,18 @@
 	</section>
 
     <div id="countdown">
-    <div style="font-size: 25px;" id="countdown-number"></div>
+    <div style="font-size: 20px;background-color:white;border-radius:20px;width:40px" id="countdown-number"></div>
       <svg>
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
     </div>
 
-	<?= $description ?>
 
     <div id="blocklock">
-      <img id="loser1" class="topArrow"/>
-      <img id="loser2" class="topArrow"/>
-      <img id="winner" class="topArrow"/>
-      <img id="loser3" class="topArrow"/>
+      <img id="loser1" src="<?php echo base_url() ?>assets/img/colorArt/svg/play-button.svg" class="topArrow"/>
+      <img id="loser2" src="<?php echo base_url() ?>assets/img/colorArt/svg/play-button.svg" class="topArrow"/>
+      <img id="winner" src="<?php echo base_url() ?>assets/img/colorArt/svg/play-button.svg" class="topArrow"/>
+      <img id="loser3" src="<?php echo base_url() ?>assets/img/colorArt/svg/play-button.svg" class="topArrow"/>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

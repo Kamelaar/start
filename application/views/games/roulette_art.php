@@ -24,6 +24,7 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png");
     background-size: cover;
+    overflow-y:hidden;
     }
     .swal2-popup {
     height: 600px !important;
@@ -104,7 +105,7 @@
         </div>
     </div>
     <div id="countdown">
-    <div style="font-size: 25px;" id="countdown-number"></div>
+    <div style="font-size: 20px;background-color:white;border-radius:20px;width:40px" id="countdown-number"></div>
       <svg>
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
@@ -144,7 +145,7 @@ $(document).ready(function(){
             var selector = $('.fancy .slot li:nth-child(' +winCount[0])
             stringUrl = selector.css('background-image'); //<==============
             stringUrl = stringUrl.replace('url(','').replace(')','');
-            stringUrl = stringUrl.substr(41);  
+            stringUrl = stringUrl.substr(60);
 
 
         }
@@ -270,14 +271,14 @@ $(document).ready(function(){
              return toto2;
         }
     </script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#playFancy").click();
+    <script>
+    $(document).ready(function(){
+			$("#playFancy2").click();
 		});
 	</script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#playFancy2").click();
+	<script>
+	$(document).ready(function(){
+			$("#playFancy").click();
 		});
 	</script>
 </body>
