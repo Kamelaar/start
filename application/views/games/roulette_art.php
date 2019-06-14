@@ -118,7 +118,7 @@
     <script type="text/javascript" charset="utf-8">
         
 $(document).ready(function(){
-        var stringUrl = "image1", stringUrl2 = "image2";
+        var stringUrl, stringUrl2;
         // normal example
         $('.normal .slot').jSlots({
             spinner : '#playNormal',
@@ -131,7 +131,7 @@ $(document).ready(function(){
             spinner : '#playFancy',
             easing : 'swing',
             time : 1000,
-            loops : 1,
+            loops : 2,
             onStart : function() {
 
                 $('.slot').removeClass('winner');
@@ -162,7 +162,7 @@ $(document).ready(function(){
             spinner : '#playFancy2',
             easing : 'easeOutSine',
             time : 1000,
-            loops : 1,
+            loops : 2,
             onStart : function() {
                 $('.slot2').removeClass('winner');
             },
@@ -270,5 +270,15 @@ $(document).ready(function(){
              return toto2;
         }
     </script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#playFancy").click();
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#playFancy2").click();
+		});
+	</script>
 </body>
 </html>

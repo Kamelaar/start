@@ -119,8 +119,14 @@ class Admin extends CI_Controller
 	public function add_picture($game_link)
 	{
 		// CI form validation
-		$this->form_validation->set_rules('image_name', 'Image Name', 'required');
+		$this->form_validation->set_rules('work_of_art', 'Nom', 'required');
 		$this->form_validation->set_rules('description', 'Description', 'required');
+		$this->form_validation->set_rules('artist', 'Artiste', 'required');
+		$this->form_validation->set_rules('art_type', 'Type d\'art', 'required');
+		$this->form_validation->set_rules('dimensions', 'DimensionS', 'required');
+		$this->form_validation->set_rules('period', 'Periode', 'required');
+		$this->form_validation->set_rules('creation_date', 'Date de créaion', 'required');
+		$this->form_validation->set_rules('expo_place', 'Lieu d\'exposition', 'required');
 
 		if ($this->form_validation->run() == FALSE)
 		{

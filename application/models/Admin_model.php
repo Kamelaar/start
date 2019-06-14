@@ -53,12 +53,18 @@ class Admin_model extends CI_Model{
 			// assign the data to an array
 			$data = array
 			(
-				'work_of_art'		=> $this->input->post('image_name'),
+				'work_of_art'		=> $this->input->post('work_of_art'),
 				'img_file'			=> $image,
 				'img_file_right'	=> $right_image,
 				'game_link'			=> $this->input->post('game_link'),
 				'game_name'			=> $this->input->post('game_name'),
 				'description'		=> $this->input->post('description'),
+				'artist'			=> $this->input->post('artist'),
+				'art_type'			=> $this->input->post('art_type'),
+				'creation_date'		=> $this->input->post('creation_date'),
+				'expo_place'		=> $this->input->post('expo_place'),
+				'period'			=> $this->input->post('period'),
+				'dimensions'		=> $this->input->post('dimensions'),
 			);
 		}
 		else
@@ -66,11 +72,17 @@ class Admin_model extends CI_Model{
 			// assign the data to an array
 			$data = array
 			(
-				'work_of_art'	=> $this->input->post('image_name'),
-				'img_file'		=> $image,
-				'game_link'		=> $this->input->post('game_link'),
-				'game_name'		=> $this->input->post('game_name'),
-				'description'	=> $this->input->post('description'),
+				'work_of_art'		=> $this->input->post('work_of_art'),
+				'img_file'			=> $image,
+				'game_link'			=> $this->input->post('game_link'),
+				'game_name'			=> $this->input->post('game_name'),
+				'description'		=> $this->input->post('description'),
+				'artist'			=> $this->input->post('artist'),
+				'art_type'			=> $this->input->post('art_type'),
+				'creation_date'		=> $this->input->post('creation_date'),
+				'expo_place'		=> $this->input->post('expo_place'),
+				'period'			=> $this->input->post('period'),
+				'dimensions'		=> $this->input->post('dimensions'),
 			);
 		}
 
