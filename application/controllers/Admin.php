@@ -157,6 +157,51 @@ class Admin extends CI_Controller
 		}
 	}
 
+	// add image from form
+	public function update_picture()
+	{
+		// CI form validation
+		$this->form_validation->set_rules('work_of_art', 'Nom', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		$this->form_validation->set_rules('artist', 'Artiste', 'required');
+		$this->form_validation->set_rules('art_type', 'Type d\'art', 'required');
+		$this->form_validation->set_rules('dimensions', 'DimensionS', 'required');
+		$this->form_validation->set_rules('period', 'Periode', 'required');
+		$this->form_validation->set_rules('creation_date', 'Date de créaion', 'required');
+		$this->form_validation->set_rules('expo_place', 'Lieu d\'exposition', 'required');
+
+		$game_link = $this->input->post('game_link');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			redirect('admin/picture/'.$game_link);
+		}
+		else
+		{
+			// body of if clause will be executed when image uploading is failed
+			if(!$this->upload->do_upload())
+			{
+				$errors = array('error' => $this->upload->display_errors());
+				// This image is uploaded by deafult if the selected image in not uploaded
+				$image = "";
+			}
+			// body of else clause will be executed when image uploading is succeeded
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+				$image = $_FILES['userfile']['name']; //name must be userfile
+				$right_image = $_FILES['userfile2']['name'];
+
+
+			}
+			$this->admin_model->update_image($image, $right_image);
+			$this->session->set_flashdata('success','Mise à jour réussie!');
+
+			redirect('admin/picture/'.$game_link);
+		}
+	}
+
+
 	public function card($game)
 	{
 

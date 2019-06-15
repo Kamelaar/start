@@ -24,7 +24,6 @@
     body{
     background: url("<?php echo base_url() ?>assets/img/background/ROULETTE-ART-START.png");
     background-size: cover;
-    overflow-y:hidden;
     }
     .swal2-popup {
     height: 600px !important;
@@ -105,7 +104,7 @@
         </div>
     </div>
     <div id="countdown">
-    <div style="font-size: 20px;background-color:white;border-radius:20px;width:40px" id="countdown-number"></div>
+    <div style="font-size: 25px;" id="countdown-number"></div>
       <svg>
         <circle r="18" cx="48" cy="20"></circle>
       </svg>
@@ -132,7 +131,7 @@ $(document).ready(function(){
             spinner : '#playFancy',
             easing : 'swing',
             time : 1000,
-            loops : 2,
+            loops : 1,
             onStart : function() {
 
                 $('.slot').removeClass('winner');
@@ -145,7 +144,7 @@ $(document).ready(function(){
             var selector = $('.fancy .slot li:nth-child(' +winCount[0])
             stringUrl = selector.css('background-image'); //<==============
             stringUrl = stringUrl.replace('url(','').replace(')','');
-            stringUrl = stringUrl.substr(60);
+            stringUrl = stringUrl.substr(41);
 
 
         }
@@ -163,7 +162,7 @@ $(document).ready(function(){
             spinner : '#playFancy2',
             easing : 'easeOutSine',
             time : 1000,
-            loops : 2,
+            loops : 1,
             onStart : function() {
                 $('.slot2').removeClass('winner');
             },
@@ -183,12 +182,12 @@ $(document).ready(function(){
 
 			$("#countdown").hide();
 
-           //var toto = $( ".hardware:visible" ).css('background-image');
-           //var toto2 = $( ".hardware2:visible" ).css('background-image');
-            //var toto = $('.fancy2 .slot2 li:nth-child(2)').css('background-image');
-            //var toto2 = $('.fancy .slot li:nth-child(2)').css('background-image');
-            //var toto = toto.substr(45);
-            //var toto2 = toto2.substr(45);
+           var toto = $( ".hardware:visible" ).css('background-image');
+           var toto2 = $( ".hardware2:visible" ).css('background-image');
+            var toto = $('.fancy2 .slot2 li:nth-child(2)').css('background-image');
+            var toto2 = $('.fancy .slot li:nth-child(2)').css('background-image');
+            var toto = toto.substr(45);
+            var toto2 = toto2.substr(45);
             console.log(stringUrl);
             console.log(stringUrl2);
             if(stringUrl == stringUrl2){
@@ -271,15 +270,18 @@ $(document).ready(function(){
              return toto2;
         }
     </script>
-    <script>
-    $(document).ready(function(){
+
+
+	<script>
+		$(document).ready(function(){
 			$("#playFancy2").click();
 		});
 	</script>
 	<script>
-	$(document).ready(function(){
+		$(document).ready(function(){
 			$("#playFancy").click();
 		});
 	</script>
+
 </body>
 </html>

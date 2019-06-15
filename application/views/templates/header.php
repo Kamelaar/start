@@ -69,12 +69,6 @@
       <ul class="sidebar navbar-nav">	  
 		  
 		<?php if($this->session->userdata('logged_in')) : ?>
-		  
-		<li class="nav-item ">
-			<p class = "welcome_message">
-				Bonjour <?= $this->session->userdata('surname')." ". $this->session->userdata('name')?>
-			</p>
-        </li>
 
 			<li class="nav-item active">
 				<a class="nav-link" href="<?php echo base_url(); ?>admin/picture/Clean_Art">

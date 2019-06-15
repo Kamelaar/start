@@ -7,4 +7,11 @@
  */
 ?>
 
+<?php
+if(!$this->session->userdata('logged_in'))
+{
+	redirect('admin/login');
+}
+?>
+
 <h1> <?= $title ?> </h1>
