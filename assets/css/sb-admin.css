@@ -10764,7 +10764,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 .img-game-form{
 	text-align: center;
-	margin: 3px;
+	margin: 5px;
 }
 .submit-game-form{
 	text-align: center;
@@ -10778,3 +10778,7 @@ body.sidebar-toggled footer.sticky-footer {
 	cursor:pointer;
 }
 
+.img-align-right
+{
+	text-align: right;
+}

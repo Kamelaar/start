@@ -25,6 +25,192 @@ if(!$this->session->userdata('logged_in'))
 
 	</section> <br />
 
+
+	<?php
+
+	if($game_link == "Roulette_Art")
+	{
+	?>
+
+	<h2 class = "text-center"> Courant artistique </h2> <br />
+
+	<!-- success message to display after uploading image -->
+	<?php if ($this->session->flashdata('success')) { ?>
+
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+		<?= $this->session->flashdata('success'); ?>
+
+	</div>
+
+	<?php  } else if  ($this->session->flashdata('danger')) { ?>
+
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+
+	<?= $this->session->flashdata('danger'); ?>
+
+</div>
+
+<?php  } ?>
+
+	<!-- validation message to display after form is submitted -->
+	<?= validation_errors('<div class="alert alert-danger alert-dismissible" role="alert">
+		 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		 <span aria-hidden="true">&times;</span></button>','</div>');
+	?>
+	<!-- image upload form      -->
+
+	<?= form_open_multipart('admin/update_roulette_art_card/'.$game_link) ?>
+
+
+		<div class = "img-game-form">
+			<label for = "work_of_art">Nom</label>
+			<input type="text" class="form-control" id="artistic_movement" name="artistic_movement" value="<?= $artistic_movement ?>" required>
+
+			<label for ="description">Définition</label>
+			<textarea class="form-control" id="movement_definition" name="movement_definition" rows="6"><?= $movement_definition ?></textarea>
+
+			<input type="submit" class="btn btn-primary" value="Modifier">
+		</div>
+
+
+	<?= form_close() ?> <br />
+
+	<hr>
+
+	<h2 class = "text-center"> Toutes les images </h2> <br />
+
+	<div class = "row">
+
+		<div class = "col img-align-right">
+
+			<h5>Image de gauche</h5>
+
+		</div>
+
+		<div class = "col">
+
+			<h5>Image de droite</h5>
+		</div>
+
+	</div>
+
+	<?php
+
+	$i = 1;
+
+	foreach ($game_pictures as $row) :
+
+	$img_url_1 = "Gauche"." ".$i;
+	$img_url_2 = "Droite"." ".$i;
+
+	?>
+
+	<a class="nav-link img-modal"  data-toggle="modal" data-target="#exampleModal" 	data-id="<?= $row -> id ?>"
+	   																					data-work_of_art="<?= $row -> work_of_art ?>"
+	   																					data-img_url_1="<?= $img_url_1 ?>"
+	   																					data-img_url_2="<?= $img_url_2 ?>">
+
+		<h4 class = "text-center"> <?= $row -> work_of_art ?> </h4>
+
+		<div class = "row">
+
+			<div class = "col img-align-right">
+
+
+
+				<img src = "<?= base_url('assets/img/'. $row -> img_file) ?>" width = "200px" height = "300px" class="img-fluid">
+
+			</div>
+
+			<div class = "col">
+
+
+
+				<img src = "<?= base_url('assets/img/'. $row -> img_file_right) ?>" width = "200px" height = "300px" class="img-fluid">
+
+			</div>
+
+		</div>
+
+	</a>
+
+		<br />
+
+		<?php $i++; ?>
+
+	<?php endforeach; ?>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-xl" role="document">
+				<div class="modal-content pseudo-modal p-3">
+					<div class="modal-header">
+						<h5 class="text-center" id="exampleModalLabel">Voir / Modifier l'oeuvre</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body ">
+
+						<!-- image upload form      -->
+						<?= form_open_multipart('admin/update_roulette_picture') ?>
+
+						<div class ="img-game-form">
+
+
+								<label for = "work_of_art">Nom</label>
+								<input type="text" class="form-control" id="work_of_art" name="work_of_art" value = "" required>
+
+
+							<div class="row">
+
+								<div class="col img-game-form">
+
+									<label>Image de gauche</label>
+									<input type="file" class="form-control-file" id="userfile" name="userfile" required>
+
+								</div>
+
+								<div class="col img-game-form">
+
+									<label>Image de droite</label>
+									<input type="file" class="form-control-file" id="userfile" name="userfile2" value = "test.png" required>
+
+								</div>
+							</div>
+
+						<input type="hidden" class="form-control hidden" id="game_link" name="game_link" value = "<?= $game_link ?>">
+						<input type="hidden" class="form-control hidden" id="picture_id" name="picture_id" value = "">
+						<input type="hidden" class="form-control hidden" id="img_url_1" name="img_url_1" value = "">
+						<input type="hidden" class="form-control hidden" id="img_url_2" name="img_url_2" value = ""> <br />
+
+						<input type="submit" class="btn btn-primary" value="Modifier" onclick="return confirm('Confirmez-vous la mise à jour?');">
+						</div>
+
+
+
+					<?= form_close() ?> <br />
+				</div>
+			</div>
+		</div>
+
+
+<?php
+}
+
+else
+
+{
+	?>
+
 	<h2 class = "text-center"> Ajouter une oeuvre </h2> <br />
 
 	<!-- success message to display after uploading image -->
@@ -78,25 +264,8 @@ if(!$this->session->userdata('logged_in'))
 			<label for = "expo_place">Lieu d'exposition</label>
 			<input type="text" class="form-control" id="expo_place" name="expo_place" required>
 
-			<?php if ($game_link == "Roulette_Art") { ?>
-
-				<label>Image de gauche</label>
-
-			<?php }  else {?>
-
-				<label>Image</label>
-
-			<?php } ?>
-
+			<label>Image</label>
 			<input type="file" class="form-control-file" id="userfile" name="userfile">
-
-			<?php if ($game_link == "Roulette_Art") { ?>
-
-				<br />
-				<label>Image de droite</label>
-				<input type="file" class="form-control-file" id="userfile" name="userfile2">
-
-			<?php } ?>
 
 		</div>
 
@@ -119,6 +288,7 @@ if(!$this->session->userdata('logged_in'))
 	<h2 class = "text-center"> Toutes les images </h2> <br />
 
 <?php
+{
 //Columns must be a factor of 12 (1,2,3,4,6,12)
 $numOfCols = 3;
 $rowCount = 0;
@@ -141,7 +311,9 @@ $bootstrapColWidth = 12 / $numOfCols;
 																						data-dimensions="<?= $row -> dimensions ?>"
 																						data-expo_place="<?= $row -> expo_place ?>"
 																						data-period="<?= $row -> period ?>"
-																						data-description="<?= $row -> description ?>">
+																						data-description="<?= $row -> description ?>"
+				   																		data-img_file="<?= $row -> img_file ?>"
+				   																		data-img_file_right="<?= $row -> img_file_right ?>">
 
 				<h4> <?= $row -> work_of_art ?> </h4>
 
@@ -162,7 +334,11 @@ $bootstrapColWidth = 12 / $numOfCols;
 
 		endif;
 
-	endforeach; ?>
+	endforeach;
+
+	}
+	?>
+
 
 </div> <br />
 
@@ -211,25 +387,8 @@ $bootstrapColWidth = 12 / $numOfCols;
 							<label for = "expo_place">Lieu d'exposition</label>
 							<input type="text" class="form-control" id="expo_place" name="expo_place" value = "" required>
 
-							<?php if ($game_link == "Roulette_Art") { ?>
-
-								<label>Image de gauche</label>
-
-							<?php }  else {?>
-
-								<label>Image</label>
-
-							<?php } ?>
-
+							<label>Image</label>
 							<input type="file" class="form-control-file" id="userfile" name="userfile">
-
-							<?php if ($game_link == "Roulette_Art") { ?>
-
-								<br />
-								<label>Image de droite</label>
-								<input type="file" class="form-control-file" id="userfile" name="userfile2">
-
-							<?php } ?>
 
 						</div>
 
@@ -245,9 +404,9 @@ $bootstrapColWidth = 12 / $numOfCols;
 				</div>
 
 				<div class = "row">
-					
+
 					<div class = "col img-game-form">
-						<a class="btn btn-danger" href="#" role="button" onclick="return confirm('Confirmez-vous la suppression?');">Supprimer</a>
+						<a class="btn btn-danger" id = "delete_card" role="button" onclick="return confirm('Confirmez-vous la suppression?');">Supprimer</a>
 
 					</div>
 					<div class = "col img-game-form">
@@ -266,6 +425,7 @@ $bootstrapColWidth = 12 / $numOfCols;
 		</div>
 	</div>
 
+<?php }?>
 
 	<script type="text/javascript">
 
@@ -279,7 +439,11 @@ $bootstrapColWidth = 12 / $numOfCols;
 				dimensions		= $(this).data('dimensions'),
 				expo_place		= $(this).data('expo_place'),
 				period			= $(this).data('period'),
-				description		= $(this).data('description');
+				description		= $(this).data('description'),
+				img_url_1		= $(this).data('img_url_1'),
+				img_url_2		= $(this).data('img_url_2'),
+				img_file		= $(this).data('img_file'),
+				game_link		=  '<?php echo $game_link; ?>';
 
 			$(".modal-body #picture_id").val( id );
 			$(".modal-body #work_of_art").val( work_of_art );
@@ -290,6 +454,26 @@ $bootstrapColWidth = 12 / $numOfCols;
 			$(".modal-body #expo_place").val( expo_place );
 			$(".modal-body #period").val( period );
 			$(".modal-body #description").val( description );
+			$(".modal-body #img_url_1").val( img_url_1 );
+			$(".modal-body #img_url_2").val( img_url_2 );
+
+			$("#delete_card").click(function(){
+
+				$.ajax({
+
+					url:"<?php echo site_url('admin/delete_picture')?>",
+					data:{id:id, img_file:img_file, game_link:game_link},
+					method:"POST",
+					success:function(data){
+						alert('Suppression réussie!')
+						window.location = game_link;
+					}
+
+				});
+
+			});
 		});
+
+
 
 	</script>
